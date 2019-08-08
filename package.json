@@ -5,7 +5,7 @@
   "main": "handler.js",
   "scripts": {
     "offline": "sls offline",
-    "deploy": "sls deploy",
+    "deploy": "sls deploy --aws-profile pmbPlus",
     "test": "jest"
   },
   "author": "",
