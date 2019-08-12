@@ -63,3 +63,11 @@ CREATE TABLE IF NOT EXISTS course_university
     FOREIGN KEY(university_id) REFERENCES university(university_id) ON UPDATE CASCADE ON DELETE RESTRICT
 
 );
+
+--- Degree
+CREATE TABLE IF NOT EXISTS degree 
+(
+   degree_id MEDIUMINT UNSIGNED not null AUTO_INCREMENT,
+   degree_name varchar(250) not null, 
+   degree_short_name varchar(250) not null
+);
