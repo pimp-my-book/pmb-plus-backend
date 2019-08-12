@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS vendor
  vendor_phone_number varchar(250),
  user_id varchar(250),
  vendor_type_id MEDIUMINT UNSIGNED not null,
- FOREIGN KEY(vendor_type_id) REFERENCES vendor_type(vendor_type_id) ON UPDATE CASCADE ON DELETE RESTRICT,
+ FOREIGN KEY(vendor_type_id) REFERENCES vendor_type(vendor_type_id) ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
 --- university  
