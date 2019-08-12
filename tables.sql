@@ -112,3 +112,19 @@ CREATE TABLE IF NOT EXISTS book
      FOREIGN KEY(product_id) REFERENCES product(product_id) ON UPDATE CASCADE ON DELETE RESTRICT,
     FOREIGN KEY(vendor_id) REFERENCES vendor(vendor_id) ON UPDATE CASCADE ON DELETE RESTRICT
 );
+
+
+--- buying_list
+CREATE TABLE IF NOT EXISTS buying_list 
+(
+   buying_list_id MEDIUMINT UNSIGNED not null AUTO_INCREMENT,
+   list_title varchar(250) not null,
+   list_isbn varchar(250) not null,
+   offer_price int not null,
+   validation_date date,
+    vendor_id MEDIUMINT UNSIGNED not null,
+    FOREIGN KEY(vendor_id) REFERENCES vendor(vendor_id) ON UPDATE CASCADE ON DELETE RESTRICT
+
+);
+
+
