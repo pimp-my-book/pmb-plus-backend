@@ -121,10 +121,29 @@ CREATE TABLE IF NOT EXISTS buying_list
    list_title varchar(250) not null,
    list_isbn varchar(250) not null,
    offer_price int not null,
-   validation_date date,
+   validation_date datetime,
     vendor_id MEDIUMINT UNSIGNED not null,
     FOREIGN KEY(vendor_id) REFERENCES vendor(vendor_id) ON UPDATE CASCADE ON DELETE RESTRICT
 
 );
 
 
+--- order
+
+CREATE TABLE IF NOT EXISTS order 
+(
+  order_id  MEDIUMINT UNSIGNED not null AUTO_INCREMENT,
+   book_id MEDIUMINT UNSIGNED not null,
+   user_id varchar(250) not null,
+   date_ordered TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+   order_status varchar(250) not null,
+   delivery_address  varchar(250) not null,
+   eta datetime,
+   courier_charges varchar(250),
+   user_name varchar(250) not null,
+   user_email varchar(250) not null,
+   user_phone_number varchar(250) not null,
+   date_delivered datetime,
+   order_uuid varchar(250) not null,
+   FOREIGN KEY(book_id) REFERENCES book(book_id) ON UPDATE CASCADE ON DELETE RESTRICT
+);
