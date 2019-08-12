@@ -71,3 +71,15 @@ CREATE TABLE IF NOT EXISTS degree
    degree_name varchar(250) not null, 
    degree_short_name varchar(250) not null
 );
+
+
+--- degree_university
+CREATE TABLE IF NOT EXISTS degree_university 
+(
+   degree_university_id MEDIUMINT UNSIGNED not null AUTO_INCREMENT,
+   degree_id MEDIUMINT UNSIGNED not null,
+   university_id MEDIUMINT UNSIGNED not null,
+    FOREIGN KEY(degree_id) REFERENCES degree(degree_id) ON UPDATE CASCADE ON DELETE RESTRICT,
+    FOREIGN KEY(university_id) REFERENCES university(university_id) ON UPDATE CASCADE ON DELETE RESTRICT
+
+);
