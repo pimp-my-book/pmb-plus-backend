@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS table
 --- Vendor type
 CREATE TABLE IF NOT EXISTS vendor_type
 (
- vendor_type_id  MEDIUMINT UNSIGNED not null AUTO_INCREMENT,
+ vendor_type_id  MEDIUMINT UNSIGNED not null AUTO_INCREMENT primary key,
  vendor_type_name varchar(250) not null,
  vendor_type_description varchar(250) not null
  
@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS vendor_type
 --- Vendor 
 CREATE TABLE IF NOT EXISTS vendor 
 (
- vendor_id  MEDIUMINT UNSIGNED not null AUTO_INCREMENT,
+ vendor_id  MEDIUMINT UNSIGNED not null AUTO_INCREMENT primary key,
  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
  vendor_name varchar(250) not null,
  vendor_description varchar(250),
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS vendor
 --- university  
 CREATE TABLE IF NOT EXISTS university 
 (
-   university_id  MEDIUMINT UNSIGNED not null AUTO_INCREMENT,
+   university_id  MEDIUMINT UNSIGNED not null AUTO_INCREMENT primary key,
    university_name varchar(250) not null,
    university_abbrivation varchar(250) not null
 
@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS university
 
 CREATE TABLE IF NOT EXISTS course 
 (
-   course_id MEDIUMINT UNSIGNED not null AUTO_INCREMENT,
+   course_id MEDIUMINT UNSIGNED not null AUTO_INCREMENT primary key,
    course_name varchar(250) not null, 
    course_code varchar(250) not null
 
@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS course
 --- course_university
 CREATE TABLE IF NOT EXISTS course_university 
 (
-   course_university_id MEDIUMINT UNSIGNED not null AUTO_INCREMENT,
+   course_university_id MEDIUMINT UNSIGNED not null AUTO_INCREMENT primary key,
    course_id MEDIUMINT UNSIGNED not null,
    university_id MEDIUMINT UNSIGNED not null,
     FOREIGN KEY(course_id) REFERENCES course(course_id) ON UPDATE CASCADE ON DELETE RESTRICT,
@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS course_university
 --- Degree
 CREATE TABLE IF NOT EXISTS degree 
 (
-   degree_id MEDIUMINT UNSIGNED not null AUTO_INCREMENT,
+   degree_id MEDIUMINT UNSIGNED not null AUTO_INCREMENT primary key,
    degree_name varchar(250) not null, 
    degree_short_name varchar(250) not null
 );
@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS degree
 --- degree_university
 CREATE TABLE IF NOT EXISTS degree_university 
 (
-   degree_university_id MEDIUMINT UNSIGNED not null AUTO_INCREMENT,
+   degree_university_id MEDIUMINT UNSIGNED not null AUTO_INCREMENT primary key,
    degree_id MEDIUMINT UNSIGNED not null,
    university_id MEDIUMINT UNSIGNED not null,
     FOREIGN KEY(degree_id) REFERENCES degree(degree_id) ON UPDATE CASCADE ON DELETE RESTRICT,
@@ -87,7 +87,7 @@ CREATE TABLE IF NOT EXISTS degree_university
 --- product
 CREATE TABLE IF NOT EXISTS product 
 (
-    product_id MEDIUMINT UNSIGNED not null AUTO_INCREMENT,
+    product_id MEDIUMINT UNSIGNED not null AUTO_INCREMENT primary key,
     product_name varchar(250) not null, 
     product_description varchar(250) not null
 );
@@ -95,7 +95,7 @@ CREATE TABLE IF NOT EXISTS product
 --- book
 CREATE TABLE IF NOT EXISTS book 
 (
-    book_id MEDIUMINT UNSIGNED not null AUTO_INCREMENT,
+    book_id MEDIUMINT UNSIGNED not null AUTO_INCREMENT primary key,
     book_title varchar(250) not null, 
     book_description varchar(250),
     book_author varchar(250) not null,
@@ -117,7 +117,7 @@ CREATE TABLE IF NOT EXISTS book
 --- buying_list
 CREATE TABLE IF NOT EXISTS buying_list 
 (
-   buying_list_id MEDIUMINT UNSIGNED not null AUTO_INCREMENT,
+   buying_list_id MEDIUMINT UNSIGNED not null AUTO_INCREMENT primary key,
    list_title varchar(250) not null,
    list_isbn varchar(250) not null,
    offer_price int not null,
@@ -130,9 +130,9 @@ CREATE TABLE IF NOT EXISTS buying_list
 
 --- order
 
-CREATE TABLE IF NOT EXISTS order 
+CREATE TABLE IF NOT EXISTS orders 
 (
-  order_id  MEDIUMINT UNSIGNED not null AUTO_INCREMENT,
+  order_id  MEDIUMINT UNSIGNED not null AUTO_INCREMENT primary key,
    book_id MEDIUMINT UNSIGNED not null,
    user_id varchar(250) not null,
    date_ordered TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -151,7 +151,7 @@ CREATE TABLE IF NOT EXISTS order
 --- book_review
 CREATE TABLE IF NOT EXISTS book_review 
 (
-   book_review_id MEDIUMINT UNSIGNED not null AUTO_INCREMENT,
+   book_review_id MEDIUMINT UNSIGNED not null AUTO_INCREMENT primary key,
    review_amount int not null,
    review_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
    user_id varchar(250) not null,
@@ -165,7 +165,7 @@ CREATE TABLE IF NOT EXISTS book_review
 
 CREATE TABLE IF NOT EXISTS collection 
 (
-  collection_id  MEDIUMINT UNSIGNED not null AUTO_INCREMENT,
+  collection_id  MEDIUMINT UNSIGNED not null AUTO_INCREMENT primary key,
    user_id varchar(250) not null,
      user_name varchar(250) not null,
    user_email varchar(250) not null,
