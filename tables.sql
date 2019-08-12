@@ -84,9 +84,31 @@ CREATE TABLE IF NOT EXISTS degree_university
 
 );
 
+--- product
 CREATE TABLE IF NOT EXISTS product 
 (
     product_id MEDIUMINT UNSIGNED not null AUTO_INCREMENT,
     product_name varchar(250) not null, 
     product_description varchar(250) not null
+);
+
+--- book
+CREATE TABLE IF NOT EXISTS book 
+(
+    book_id MEDIUMINT UNSIGNED not null AUTO_INCREMENT,
+    book_title varchar(250) not null, 
+    book_description varchar(250),
+    book_author varchar(250) not null,
+    book_grade varchar(250),
+    book_price varchar(250) not null,
+    book_condition varchar(250) not null,
+    date_uploaded TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    book_image varchar(250),
+    book_edition varchar(250) not null,
+    book_location varchar(250),
+    book_isbn  varchar(250) not null,
+    product_id MEDIUMINT UNSIGNED not null,
+    vendor_id MEDIUMINT UNSIGNED not null,
+     FOREIGN KEY(product_id) REFERENCES product(product_id) ON UPDATE CASCADE ON DELETE RESTRICT,
+    FOREIGN KEY(vendor_id) REFERENCES vendor(vendor_id) ON UPDATE CASCADE ON DELETE RESTRICT
 );
