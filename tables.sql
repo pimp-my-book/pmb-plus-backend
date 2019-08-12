@@ -41,3 +41,14 @@ CREATE TABLE IF NOT EXISTS university
    university_abbrivation varchar(250) not null
 
 );
+
+
+--- courses
+
+CREATE TABLE IF NOT EXISTS course 
+(
+   course_id MEDIUMINT UNSIGNED not null AUTO_INCREMENT,
+   course_name varchar(250) not null, 
+   course_code varchar(250) not null
+
+);
