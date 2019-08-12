@@ -147,3 +147,15 @@ CREATE TABLE IF NOT EXISTS order
    order_uuid varchar(250) not null,
    FOREIGN KEY(book_id) REFERENCES book(book_id) ON UPDATE CASCADE ON DELETE RESTRICT
 );
+
+--- book_review
+CREATE TABLE IF NOT EXISTS book_review 
+(
+   book_review_id MEDIUMINT UNSIGNED not null AUTO_INCREMENT,
+   review_amount int not null,
+   review_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+   user_id varchar(250) not null,
+      book_id MEDIUMINT UNSIGNED not null,
+ FOREIGN KEY(book_id) REFERENCES book(book_id) ON UPDATE CASCADE ON DELETE RESTRICT
+
+);
