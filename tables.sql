@@ -1,14 +1,15 @@
---- Vendor 
+
 
 /*  
 
 CREATE TABLE IF NOT EXISTS table 
 (
+    MEDIUMINT UNSIGNED not null AUTO_INCREMENT,
 
 );
 
 */
-
+--- Vendor type
 CREATE TABLE IF NOT EXISTS vendor_type
 (
  vendor_type_id  MEDIUMINT UNSIGNED not null AUTO_INCREMENT,
@@ -16,7 +17,7 @@ CREATE TABLE IF NOT EXISTS vendor_type
  vendor_type_description varchar(250) not null
  
 );
-
+--- Vendor 
 CREATE TABLE IF NOT EXISTS vendor 
 (
  vendor_id  MEDIUMINT UNSIGNED not null AUTO_INCREMENT,
@@ -30,4 +31,13 @@ CREATE TABLE IF NOT EXISTS vendor
  user_id varchar(250),
  vendor_type_id MEDIUMINT UNSIGNED not null,
  FOREIGN KEY(vendor_type_id) REFERENCES vendor_type(vendor_type_id) ON UPDATE CASCADE ON DELETE RESTRICT,
+);
+
+--- university  
+CREATE TABLE IF NOT EXISTS university 
+(
+   university_id  MEDIUMINT UNSIGNED not null AUTO_INCREMENT,
+   university_name varchar(250) not null,
+   university_abbrivation varchar(250) not null
+
 );
