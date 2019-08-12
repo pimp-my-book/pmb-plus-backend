@@ -159,3 +159,18 @@ CREATE TABLE IF NOT EXISTS book_review
  FOREIGN KEY(book_id) REFERENCES book(book_id) ON UPDATE CASCADE ON DELETE RESTRICT
 
 );
+
+
+--collections
+
+CREATE TABLE IF NOT EXISTS collection 
+(
+  collection_id  MEDIUMINT UNSIGNED not null AUTO_INCREMENT,
+   user_id varchar(250) not null,
+     user_name varchar(250) not null,
+   user_email varchar(250) not null,
+   user_phone_number varchar(250) not null,
+   collection_location varchar(250) not null,
+   collection_date datetime not null,
+   staff_member varchar(250) not null
+);
