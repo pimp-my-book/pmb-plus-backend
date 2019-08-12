@@ -52,3 +52,14 @@ CREATE TABLE IF NOT EXISTS course
    course_code varchar(250) not null
 
 );
+
+--- course_university
+CREATE TABLE IF NOT EXISTS course_university 
+(
+   course_university_id MEDIUMINT UNSIGNED not null AUTO_INCREMENT,
+   course_id MEDIUMINT UNSIGNED not null,
+   university_id MEDIUMINT UNSIGNED not null,
+    FOREIGN KEY(course_id) REFERENCES course(course_id) ON UPDATE CASCADE ON DELETE RESTRICT,
+    FOREIGN KEY(university_id) REFERENCES university(university_id) ON UPDATE CASCADE ON DELETE RESTRICT
+
+);
