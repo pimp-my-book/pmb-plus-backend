@@ -83,3 +83,10 @@ CREATE TABLE IF NOT EXISTS degree_university
     FOREIGN KEY(university_id) REFERENCES university(university_id) ON UPDATE CASCADE ON DELETE RESTRICT
 
 );
+
+CREATE TABLE IF NOT EXISTS product 
+(
+    product_id MEDIUMINT UNSIGNED not null AUTO_INCREMENT,
+    product_name varchar(250) not null, 
+    product_description varchar(250) not null
+);
