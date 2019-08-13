@@ -9,23 +9,35 @@ plugins:
 # serverless-webpack configuration
 # Enable auto-packing of external modules
 custom:
+  stage: ${opt:stage, self:provider.stage}
+  region: ${opt:region, self:provder.region}
   webpack:
     webpackConfig: ./webpack.config.js
     includeModules: true
   serverless-offline:
     port: 4000
+  environment: ${file(env.yml):${self:custom.stage}, file(env.yml):default}
 
 provider:
   name: aws
   runtime: nodejs8.10
   stage: dev
   region: us-east-1
-  # To load environment variables externally
-  # rename env.example to env.yml and uncomment
-  # the following line. Also, make sure to not
-  # commit your env.yml.
-  #
-  #environment: ${file(env.yml):${self:provider.stage}}
+  environment:
+    db_user: ${self:custom.environment.db_user}
+    db_name: ${self:custom.environment.db_name}
+    db_password: ${self:custom.environment.db_password}
+    db_port: ${self:custom.environment.db_port}
+    db_host: ${self:custom.environment.db_host}
+  vpc:
+    securityGroupIds:
+      - sg-0817d67e10564fcac
+    subnetIds:
+      - subnet-02caece9d0c09d9b3
+      - subnet-0a5543550af69c4cb
+      - subnet-0437b2c12ac33444f
+      - subnet-043d6118efb6a6f9b
+ 
 
 functions:
   graphql:
@@ -44,3 +56,11 @@ functions:
           method: get 
           cors: true
           integration: lambda-proxy
+
+
+resources:
+  #Cognito
+  - ${file(resources/cognito-user-pool.yml)}
+  - ${file(resources/cognito-identity-pool.yml)}
+  #S3
+  - ${file(resources/S3-bucket.yml)}
