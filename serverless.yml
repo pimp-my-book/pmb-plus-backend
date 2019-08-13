@@ -31,12 +31,12 @@ provider:
     db_host: ${self:custom.environment.db_host}
   vpc:
     securityGroupIds:
-      - sg-bf84a7f4
+      - sg-0817d67e10564fcac
     subnetIds:
-      - subnet-2490611a
-      - subnet-71832016
-      - subnet-bcef99f6
-      - subnet-020dae5e
+      - subnet-02caece9d0c09d9b3
+      - subnet-0a5543550af69c4cb
+      - subnet-0437b2c12ac33444f
+      - subnet-043d6118efb6a6f9b
  
 
 functions:
