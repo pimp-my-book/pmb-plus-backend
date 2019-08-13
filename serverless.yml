@@ -9,6 +9,8 @@ plugins:
 # serverless-webpack configuration
 # Enable auto-packing of external modules
 custom:
+  stage: ${opt:stage, self:provider.stage}
+  region: ${opt:region, self:provder.region}
   webpack:
     webpackConfig: ./webpack.config.js
     includeModules: true
