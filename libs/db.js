@@ -31,3 +31,10 @@ const clientProd = Client({
         
     }
 })
+
+
+const isProd = process.env.NODE_ENV === 'prodcution'
+const isDev = process.env.NODE_ENV === 'development'
+
+const db = isProd ? clientProd : isDev ? clientDev : clientLocal
+module.exports = db
