@@ -47,3 +47,11 @@ functions:
           method: get 
           cors: true
           integration: lambda-proxy
+
+
+resources:
+  #Cognito
+  - ${file(resources/cognito-user-pool.yml)}
+  - ${file(resources/cognito-identity-pool.yml)}
+  #S3
+  - ${file(resources/S3-bucket.yml)}
