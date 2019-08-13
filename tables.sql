@@ -161,7 +161,7 @@ CREATE TABLE IF NOT EXISTS book_review
 );
 
 
---collections
+---collections
 
 CREATE TABLE IF NOT EXISTS collection 
 (
