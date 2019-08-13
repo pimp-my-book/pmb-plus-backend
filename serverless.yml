@@ -23,12 +23,21 @@ provider:
   runtime: nodejs8.10
   stage: dev
   region: us-east-1
-  # To load environment variables externally
-  # rename env.example to env.yml and uncomment
-  # the following line. Also, make sure to not
-  # commit your env.yml.
-  #
-  #environment: ${file(env.yml):${self:provider.stage}}
+  environment:
+    db_user: ${self:custom.environment.db_user}
+    db_name: ${self:custom.environment.db_name}
+    db_password: ${self:custom.environment.db_password}
+    db_port: ${self:custom.environment.db_port}
+    db_host: ${self:custom.environment.db_host}
+  vpc:
+    securityGroupIds:
+      - sg-bf84a7f4
+    subnetIds:
+      - subnet-2490611a
+      - subnet-71832016
+      - subnet-bcef99f6
+      - subnet-020dae5e
+ 
 
 functions:
   graphql:
