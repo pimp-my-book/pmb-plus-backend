@@ -36,7 +36,7 @@ return {
     vendorWebsite: args.vendorWebsite,
     vendorEmail: args.vendorEmail,
     vendorPhone: args.vendorPhone,
-    vendorAddreess: argsvendorAddreess,
+    vendorAddress: vendorAddress,
 }
 } catch(e){
    return e
