@@ -25,13 +25,16 @@ provider:
   region: us-east-1
   environment:
   #local
-    db_user: ${file(env.yml):local.db_local_user}
-    db_name: ${file(env.yml):local.db_local_database}
-    db_password: ${file(env.yml):local.db_local_password}
+    db_local_user: ${file(env.yml):local.db_local_user}
+    db_local_database: ${file(env.yml):local.db_local_database}
+    db_local_password: ${file(env.yml):local.db_local_password}
     db_port: 3306
-    db_host: ${file(env.yml):local.db_local_host}
+    db_local_host: ${file(env.yml):local.db_local_host}
   #dev
-
+    db_user_dev: ${file(env.yml):dev.db_user_dev}
+    db_name_dev: ${file(env.yml):dev.db_name_dev}
+    db_password_dev: ${file(env.yml):dev.db_password_dev}
+    db_url_dev: ${file(env.yml):dev.db_url_dev}
   #prod
   vpc:
     securityGroupIds:
