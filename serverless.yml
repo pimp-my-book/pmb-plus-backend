@@ -36,6 +36,10 @@ provider:
     db_password_dev: ${file(env.yml):dev.db_password_dev}
     db_url_dev: ${file(env.yml):dev.db_url_dev}
   #prod
+    db_user_prod: ${file(env.yml):prod.db_user_prod}
+    db_name_prod: ${file(env.yml):prod.db_name_prod}
+    db_password_prod: ${file(env.yml):prod.db_password_prod}
+    db_url_prod: ${file(env.yml):prod.db_url_prod}
   vpc:
     securityGroupIds:
       - sg-0817d67e10564fcac
