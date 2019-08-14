@@ -4,9 +4,8 @@ import db from '../../libs/db'
 //Add Vendor
 export const addVendor = async ({input:args}, context) =>{
 try{
-    console.log(process.env.db_local_user)
-    console.log(process.env.db_user_dev)
-    console.log(process.env.db_user_prod)
+ 
+    console.log(process.env.NODE_ENV)
     console.log(db)
    const addVendorInput = {
     vendorName: args.vendorName,
@@ -14,15 +13,15 @@ try{
     vendorWebsite: args.vendorWebsite,
     vendorEmail: args.vendorEmail,
     vendorPhone: args.vendorPhone,
-    vendorAddreess: args.vendorAddreess,
+    vendorAddress: args.vendorAddress,
    }
 
-   let newVendor = await db.query(`INSERT INTO vendor (vendor_name,vendor_description,vendor_website, vendor_address,vendor_email,vendor_phone_number,user_id,vendor_type_id ) VALUES(?,?,?,?,?,?,?,?,?)`,
+   let newVendor = await db.query(`INSERT INTO vendor (vendor_name,vendor_description,vendor_website, vendor_address,vendor_email,vendor_phone_number,user_id,vendor_type_id ) VALUES(?,?,?,?,?,?,?,?)`,
 [
   addVendorInput.vendorName,
   addVendorInput.vendorDescription,
   addVendorInput.vendorWebsite,
-  addVendorInput.vendorAddreess,
+  addVendorInput.vendorAddress,
   addVendorInput.vendorEmail,
   addVendorInput.vendorPhone,
   "94c3ae75-5a32-4c44-bc17-e80cbfc006a7",
