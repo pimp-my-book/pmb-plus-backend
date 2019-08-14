@@ -16,7 +16,7 @@ custom:
     includeModules: true
   serverless-offline:
     port: 4000
-  environment: ${file(env.yml):${self:custom.stage}, file(env.yml):default}
+  environment: ${file(./env.yml):${self:custom.stage}, file(./env.yml):default}
 
 provider:
   name: aws
@@ -24,11 +24,15 @@ provider:
   stage: dev
   region: us-east-1
   environment:
-    db_user: ${self:custom.environment.db_user}
+  #local
+    db_user: ${file(env.yml):prod.db_user}
     db_name: ${self:custom.environment.db_name}
     db_password: ${self:custom.environment.db_password}
     db_port: ${self:custom.environment.db_port}
-    db_host: ${self:custom.environment.db_host}
+    db_host: ${self:custom.environment.db_url}
+  #dev
+
+  #prod
   vpc:
     securityGroupIds:
       - sg-0817d67e10564fcac
