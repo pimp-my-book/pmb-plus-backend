@@ -26,6 +26,7 @@ input addVendorInput {
     vendorWebsite: String
     vendorAddress: String!
     vendorEmail: String!
+    vendorPhone: String!
 }
 """
 Buying List Type
@@ -45,6 +46,7 @@ type Vendor {
     vendorWebsite: String
     vendorAddress: String!
     vendorEmail: String!
+    vendorPhone: String!
     inventory: [Product]!
     buyingList: [BuyingList]!
 }
@@ -84,7 +86,7 @@ type S3Payload {
     url: String!
 }
 type Mutation {
-    
+    addVendor(input: addVendorInput!): Vendor!
     addBook(input: addBookInput) : Book
     addVendor(input: addVendorInput): Vendor
     addBooks(fileName: String!, fileType: String!): S3Payload!
