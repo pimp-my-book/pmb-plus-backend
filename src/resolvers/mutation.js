@@ -4,7 +4,9 @@ import db from '../../libs/db'
 //Add Vendor
 export const addVendor = async ({input:args}, context) =>{
 try{
-    console.log(process.env.db_user)
+    console.log(process.env.db_local_user)
+    console.log(process.env.db_user_dev)
+    console.log(process.env.db_user_prod)
     console.log(db)
    const addVendorInput = {
     vendorName: args.vendorName,

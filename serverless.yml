@@ -25,7 +25,7 @@ provider:
   region: us-east-1
   environment:
   #local
-    db_local_user: ${file(env.yml):local.db_local_user}
+    db_local_user: ${file(./env.yml):local.db_local_user}
     db_local_database: ${file(env.yml):local.db_local_database}
     db_local_password: ${file(env.yml):local.db_local_password}
     db_port: 3306
