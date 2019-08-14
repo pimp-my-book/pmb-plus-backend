@@ -25,11 +25,11 @@ provider:
   region: us-east-1
   environment:
   #local
-    db_user: ${file(env.yml):prod.db_user}
-    db_name: ${self:custom.environment.db_name}
-    db_password: ${self:custom.environment.db_password}
-    db_port: ${self:custom.environment.db_port}
-    db_host: ${self:custom.environment.db_url}
+    db_user: ${file(env.yml):local.db_local_user}
+    db_name: ${file(env.yml):local.db_local_database}
+    db_password: ${file(env.yml):local.db_local_password}
+    db_port: 3306
+    db_host: ${file(env.yml):local.db_local_host}
   #dev
 
   #prod
