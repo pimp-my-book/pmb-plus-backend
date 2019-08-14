@@ -1,11 +1,6 @@
-/*
+import db from '../../libs/db'
 
-ADD YOUR MUTATION HERE:
-
-export const addCars = async (args, context) => {
-    
+//Add Vendor
+export const addVendor = async ({input:args}, context) =>{
 
 }
-
-
-*/
