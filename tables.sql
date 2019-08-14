@@ -40,17 +40,7 @@ CREATE TABLE IF NOT EXISTS book (book_id MEDIUMINT UNSIGNED not null AUTO_INCREM
 
 
 --- buying_list
-CREATE TABLE IF NOT EXISTS buying_list 
-(
-   buying_list_id MEDIUMINT UNSIGNED not null AUTO_INCREMENT primary key,
-   list_title varchar(250) not null,
-   list_isbn varchar(250) not null,
-   offer_price int not null,
-   validation_date datetime,
-    vendor_id MEDIUMINT UNSIGNED not null,
-    FOREIGN KEY(vendor_id) REFERENCES vendor(vendor_id) ON UPDATE CASCADE ON DELETE RESTRICT
-
-);
+CREATE TABLE IF NOT EXISTS buying_list ( buying_list_id MEDIUMINT UNSIGNED not null AUTO_INCREMENT primary key, list_title varchar(250) not null, list_isbn varchar(250) not null, offer_price int not null, validation_date datetime,  vendor_id MEDIUMINT UNSIGNED not null,  FOREIGN KEY(vendor_id) REFERENCES vendor(vendor_id) ON UPDATE CASCADE ON DELETE RESTRICT);
 
 
 --- order
@@ -63,4 +53,5 @@ CREATE TABLE IF NOT EXISTS book_review (book_review_id MEDIUMINT UNSIGNED not nu
 
 ---collections
 
+CREATE TABLE IF NOT EXISTS collection (collection_id  MEDIUMINT UNSIGNED not null AUTO_INCREMENT primary key, user_id varchar(250) not null, user_name varchar(250) not null,user_email varchar(250) not null,user_phone_number varchar(250) not null,collection_location varchar(250) not null,collection_date datetime not null,staff_member varchar(250) not null);
 CREATE TABLE IF NOT EXISTS collection (collection_id  MEDIUMINT UNSIGNED not null AUTO_INCREMENT primary key, user_id varchar(250) not null, user_name varchar(250) not null,user_email varchar(250) not null,user_phone_number varchar(250) not null,collection_location varchar(250) not null,collection_date datetime not null,staff_member varchar(250) not null);
