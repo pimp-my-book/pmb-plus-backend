@@ -10,7 +10,7 @@ try{
     vendorWebsite: args.vendorWebsite,
     vendorEmail: args.vendorEmail,
     vendorPhone: args.vendorPhone,
-    vendorAddreess: argsvendorAddreess,
+    vendorAddreess: args.vendorAddreess,
    }
 
    let newVendor = await db.query(`INSERT INTO vendor (vendor_name,vendor_description,vendor_website, vendor_address,vendor_email,vendor_phone_number,user_id,vendor_type_id ) VALUES(?,?,?,?,?,?,?,?,?)`,
