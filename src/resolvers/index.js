@@ -1,5 +1,5 @@
-import {hello} from './query';
-import {addVendor} from './mutation';
+import {hello} from './query'
+import {addVendor} from './mutation'
 
 export const resolvers = {
     Query: {
@@ -7,6 +7,6 @@ export const resolvers = {
     },
     Mutation: {
         addVendor:(root, {input:args}, context) => addVendor({input:args}, context)
-        
+
     }
 }
