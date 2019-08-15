@@ -39,6 +39,17 @@ return {
     vendorAddress: vendorAddress,
 }
 } catch(e){
-   return e
+    if(e.code === 'ER_DUP_ENTRY'){
+        return new Error('Something like this already exists')
+    }
+   else {
+       
+       return e
+   }
 }
 }
+
+/*
+
+ 
+*/
