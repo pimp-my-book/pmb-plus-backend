@@ -5,7 +5,7 @@ Add Book input
 input addBookInput {
 
     price: String!
-
+    description: String!
     image: String!
     edition: String!
     title: String!
@@ -24,6 +24,7 @@ A book type
 type Book  {
     ID: Int!
     dateUploaded: String!
+    description: String!
     price: String!
     image: String!
     title: String!
