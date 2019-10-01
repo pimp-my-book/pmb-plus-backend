@@ -44,17 +44,13 @@ type S3Payload {
     url: String!
 }
 type Mutation {
-    addVendor(input: addVendorInput!): Vendor!
     addBook(input: addBookInput) : Book
     addBooks(fileName: String!, fileType: String!): S3Payload!
 }
 type Query {
      hello: String!
      connection: String
-     """ 
-     A query to get all the books a vendor has posted. 
-     """
-     getBooksByVendor(vendor:String!): [Book]
+   
      getAllBooks: [Book]
      getOneBook(ID: Int): Book
 }
