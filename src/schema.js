@@ -17,53 +17,7 @@ input addBookInput {
     grade: String!
   
 }
-"""
-Add Vendor Input
-"""
-input addVendorInput {
-    vendorName: String!
-    vendorDescription: String!
-    vendorWebsite: String
-    vendorAddress: String!
-    vendorEmail: String!
-    vendorPhone: String!
-}
-"""
-Buying List Type
-"""
-type BuyingList {
-    ID: Int!
-    store: String!
-    books:[Book]!
-}
-"""
-Vendor Type
-"""
-type Vendor {
-    ID: Int!
-    vendorName: String!
-    vendorDescription: String!
-    vendorWebsite: String
-    vendorAddress: String!
-    vendorEmail: String!
-    vendorPhone: String!
-    inventory: [Product]!
-    buyingList: [BuyingList]!
-}
-"""
-Product interface
-"""
-interface Product {
-    ID: Int!
-    productName: String!
-    productDescription: String!
-    dateUploaded: String!
-    price: String!
-    productType: String!
-    vendor: String!
-    image: String!
-    
-}
+
 """
 A book type 
 """
@@ -101,4 +55,4 @@ type Query {
      getOneBook(ID: Int): Book
 }
 `
-export {schema}
+export { schema }
