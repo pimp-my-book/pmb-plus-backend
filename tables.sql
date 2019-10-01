@@ -37,6 +37,7 @@ CREATE TABLE IF NOT EXISTS book
     book_course varchar(250) not null,
     book_univeristy varchar(250) not null,
     product_id MEDIUMINT UNSIGNED not null,
+    book_owner varchar(250) not null,
      FOREIGN KEY(product_id) REFERENCES product(product_id) ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
