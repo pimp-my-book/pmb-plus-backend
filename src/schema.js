@@ -33,6 +33,10 @@ type Book  {
     ISBN: String!
     edition: String!
     grade: String!
+    owner: String!
+    univeristy: String
+    course: String
+    degree: String
    
 }
 type S3Payload {
