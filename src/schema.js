@@ -12,6 +12,7 @@ input addBookInput {
     author: String!
     ISBN: String!
     grade: String!
+    location: String!
     univeristy: String
     course: String
     degree: String
@@ -31,6 +32,7 @@ type Book  {
     author: String!
     ISBN: String!
     edition: String!
+    location: String!
     grade: String!
     owner: String!
     univeristy: String
