@@ -15,6 +15,9 @@ input addBookInput {
     author: String!
     ISBN: String!
     grade: String!
+    univeristy: String
+    course: String
+    degree: String
   
 }
 
