@@ -3,12 +3,9 @@ const schema = `
 Add Book input
 """
 input addBookInput {
-    
-    productName: String!
-    productDescription: String!
-    
+
     price: String!
-    vendor: String!
+
     image: String!
     edition: String!
     title: String!
@@ -28,9 +25,7 @@ type Book  {
     ID: Int!
     dateUploaded: String!
     price: String!
-    vendor: String!
     image: String!
-    productType: String!
     title: String!
     author: String!
     ISBN: String!
