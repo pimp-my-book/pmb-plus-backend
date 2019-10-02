@@ -53,41 +53,42 @@ export const addVendor = async ({ input: args }, context) => {
 //Add Book mutation 
 
 export const addBook = async ({ input: args }, context) => {
-    const addBookInput = {
-        title: args.title,
-        description: args.description,
-        author: args.author,
-        grade: args.grade,
-        price: args.price,
-        image: args.image,
-        edition: args.edition,
-        location: args.location,
-        isbn: args.isbn,
-        degree: args.degree,
-        course: args.course,
-        univeristy: args.univeristy
-    }
+
 
     try {
+        const addBookInput = {
+            title: args.title,
+            description: args.description,
+            author: args.author,
+            grade: args.grade,
+            price: args.price,
+            image: args.image,
+            edition: args.edition,
+            location: args.location,
+            isbn: args.isbn,
+            degree: args.degree,
+            course: args.course,
+            univeristy: args.univeristy
+        }
         console.log(process.env.NODE_ENV)
         console.log(db)
-        let newBook = await db.query(`INSERT INTO book (book_title,book_description,book_author,book_grade,book_price,book_condition,book_image,book_edition,book_location,book_isbn,book_degree,book_course,book_univeristy,product_id,book_owner) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`
-        [
-            addBookInput.title,
-            addBookInput.description,
-            addBookInput.author,
-            addBookInput.grade,
-            addBookInput.price,
-            addBookInput.image,
-            addBookInput.edition,
-            addBookInput.location,
-            addBookInput.isbn,
-            addBookInput.degree,
-            addBookInput.course,
-            addBookInput.univeristy,
-            '1',
-            '94c3ae75-5a32-4c44-bc17-e80cbfc006a7'
-        ]
+        let newBook = await db.query(`INSERT INTO book (book_title,book_description,book_author,book_grade,book_price,book_condition,book_image,book_edition,book_location,book_isbn,book_degree,book_course,book_univeristy,product_id,book_owner) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)`,
+            [
+                addBookInput.title,
+                addBookInput.description,
+                addBookInput.author,
+                addBookInput.grade,
+                addBookInput.price,
+                addBookInput.image,
+                addBookInput.edition,
+                addBookInput.location,
+                addBookInput.isbn,
+                addBookInput.degree,
+                addBookInput.course,
+                addBookInput.univeristy,
+                '1',
+                '94c3ae75-5a32-4c44-bc17-e80cbfc006a7'
+            ]
         )
         console.log(newBook)
         await db.end()
