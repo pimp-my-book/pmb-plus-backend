@@ -72,13 +72,14 @@ export const addBook = async ({ input: args }, context) => {
         }
         console.log(process.env.NODE_ENV)
         console.log(db)
-        let newBook = await db.query(`INSERT INTO book (book_title,book_description,book_author,book_grade,book_price,book_condition,book_image,book_edition,book_location,book_isbn,book_degree,book_course,book_univeristy,product_id,book_owner) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)`,
+        let newBook = await db.query(`INSERT INTO book (book_title,book_description,book_author,book_grade,book_price,book_condition,book_image,book_edition,book_location,book_isbn,book_degree,book_course,book_univeristy,product_id,book_owner) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`,
             [
                 addBookInput.title,
                 addBookInput.description,
                 addBookInput.author,
                 addBookInput.grade,
                 addBookInput.price,
+                'used',
                 addBookInput.image,
                 addBookInput.edition,
                 addBookInput.location,
@@ -116,3 +117,4 @@ export const addBook = async ({ input: args }, context) => {
 
 
 */
+
