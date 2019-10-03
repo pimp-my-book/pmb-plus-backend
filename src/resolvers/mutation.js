@@ -102,7 +102,7 @@ export const addBook = async ({ input: args }, context) => {
             image: args.image,
             edition: args.edition,
             location: args.location,
-            isbn: args.isbn,
+            ISBN: args.ISBN,
             degree: args.degree,
             course: args.course,
             univeristy: args.univeristy,
