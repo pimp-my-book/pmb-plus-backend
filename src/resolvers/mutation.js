@@ -88,7 +88,7 @@ export const addBook = async ({ input: args }, context) => {
                 addBookInput.course,
                 addBookInput.univeristy,
                 '1',
-                '94c3ae75-5a32-4c44-bc17-e80cbfc006a7'
+                context.event.requestContext.authorizer.claims.sub
             ]
         )
         console.log(newBook)
