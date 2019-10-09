@@ -16,7 +16,7 @@ custom:
     includeModules: true
   serverless-offline:
     port: 4000
-  environment: ${file(env.yml):${self:custom.stage}, file(env.yml):default}
+  environment: ${file(./env.yml):${self:custom.stage}, file(./env.yml):default}
 
 provider:
   name: aws
@@ -24,11 +24,22 @@ provider:
   stage: dev
   region: us-east-1
   environment:
-    db_user: ${self:custom.environment.db_user}
-    db_name: ${self:custom.environment.db_name}
-    db_password: ${self:custom.environment.db_password}
-    db_port: ${self:custom.environment.db_port}
-    db_host: ${self:custom.environment.db_host}
+  #local
+    db_local_user: ${file(./env.yml):local.db_local_user}
+    db_local_database: ${file(env.yml):local.db_local_database}
+    db_local_password: ${file(env.yml):local.db_local_password}
+    db_port: 3306
+    db_local_host: ${file(env.yml):local.db_local_host}
+  #dev
+    db_user_dev: ${file(env.yml):dev.db_user_dev}
+    db_name_dev: ${file(env.yml):dev.db_name_dev}
+    db_password_dev: ${file(env.yml):dev.db_password_dev}
+    db_url_dev: ${file(env.yml):dev.db_url_dev}
+  #prod
+    db_user_prod: ${file(env.yml):prod.db_user_prod}
+    db_name_prod: ${file(env.yml):prod.db_name_prod}
+    db_password_prod: ${file(env.yml):prod.db_password_prod}
+    db_url_prod: ${file(env.yml):prod.db_url_prod}
   vpc:
     securityGroupIds:
       - sg-0817d67e10564fcac
@@ -50,6 +61,8 @@ functions:
           method: post 
           cors: true 
           integration: lambda-proxy
+          authorizer:
+              arn:aws:cognito-idp:us-east-1:094935673706:userpool/us-east-1_OQfgqHOIe
 
       - http:
           path: graphql

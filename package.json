@@ -29,9 +29,12 @@
   },
   "dependencies": {
     "apollo-server-lambda": "^2.5.0",
+    "aws-sdk": "^2.509.0",
     "babel-runtime": "^6.26.0",
+    "dotenv": "^8.1.0",
     "graphql": "^14.3.0",
     "serverless-mysql": "^1.4.0",
-    "source-map-support": "^0.4.18"
+    "source-map-support": "^0.4.18",
+    "uuid": "^3.3.2"
   }
 }
