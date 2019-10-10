@@ -110,7 +110,10 @@ export const addBook = async ({ input: args }, context) => {
         }
 
     } catch (e) {
+        console.log(e)
+        console.log(e.message)
         return e
+
     }
 }
 /*
