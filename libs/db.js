@@ -37,7 +37,7 @@ const isProd = process.env.NODE_ENV === 'prodcution'
 const isDev = process.env.NODE_ENV === 'development'
 
 console.log(process.env.db_local_host)
-const db = clientLocal
+const db = clientDev
 // isProd ? clientProd : isDev ? clientDev :
 
 module.exports = db

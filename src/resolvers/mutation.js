@@ -93,25 +93,21 @@ export const addBook = async ({ input: args }, context) => {
         )
         console.log(newBook)
         await db.end()
-        if (newBook.error) {
-            throw newBook.error
-        } else {
 
-            return {
-                title: args.title,
-                description: args.description,
-                author: args.author,
-                grade: args.grade,
-                price: args.price,
-                image: args.image,
-                edition: args.edition,
-                location: args.location,
-                ISBN: args.ISBN,
-                degree: args.degree,
-                course: args.course,
-                univeristy: args.univeristy,
+        return {
+            title: args.title,
+            description: args.description,
+            author: args.author,
+            grade: args.grade,
+            price: args.price,
+            image: args.image,
+            edition: args.edition,
+            location: args.location,
+            ISBN: args.ISBN,
+            degree: args.degree,
+            course: args.course,
+            univeristy: args.univeristy,
 
-            }
         }
 
     } catch (e) {
