@@ -1,3 +1,3 @@
 export const hello = (args, context) => {
-	return console.log(process.env)
+	return console.log(process)
 }
