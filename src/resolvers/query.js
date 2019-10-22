@@ -56,7 +56,8 @@ export const getBooksByMinPrice = async (args, context) => {
 export const getBooksByMaxPrice = async (args, context) => {
 
 	/* query
-
+select book_id,book_title, book_grade,book_price,book_image  from book
+	where price => 500
 
 
 	*/
@@ -67,7 +68,8 @@ export const getBooksByMaxPrice = async (args, context) => {
 export const getBooksByUniversity = async (args, context) => {
 
 	/* query
-
+select book_id,book_title, book_grade,book_price,book_image  from book
+group by book_univeristy
 
 
 	*/
