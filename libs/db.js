@@ -39,5 +39,6 @@ const isDev = process.env.env_Stage
 console.log(process.env.NODE_ENV)
 const db = isDev === 'development' ? clientDev : clientProd
 // isProd ? clientProd : isDev ? clientDev :
+
 console.log(db)
 module.exports = db
