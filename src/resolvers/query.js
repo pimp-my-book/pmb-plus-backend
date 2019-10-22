@@ -5,6 +5,7 @@ export const hello = (args, context) => {
 	return console.log(db) && console.log(JSON.parse(JSON.stringify(db)))
 }
 
+//https://itnext.io/15-useful-javascript-examples-of-map-reduce-and-filter-74cbbb5e0a1f
 
 //getLatestBooks
 export const getLatestBooks = async (args, context) => {
