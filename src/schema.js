@@ -75,11 +75,17 @@ A query that gets books by their lowest price range
     getBooksByMinPrice: [Book!]!
 
     """
+    """
+    A query that gets books by their highest price range
+        """
+        getBooksByMaxPrice: [Book!]!
+    
+        """
 A query that gets books by univeristy
     """
     getBooksByUniversity: [Book!]!
 
-    
+
      getAllBooks: [Book]
      getOneBook(ID: Int): Book
 }

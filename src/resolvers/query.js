@@ -11,7 +11,7 @@ export const getLatestBooks = async (args, context) => {
 
 	/* query
 
-select * book_id,book_title, book_grade,book_price,book_image  from book
+select book_id,book_title, book_grade,book_price,book_image  from book
 where date_uploaded <= DATEADD(DAY,-5,GETDATE())
 
 	*/
@@ -21,7 +21,7 @@ where date_uploaded <= DATEADD(DAY,-5,GETDATE())
 export const getBooksByDegree = async (args, context) => {
 
 	/* query
-select * from book
+select book_id,book_title, book_grade,book_price,book_image  from book
 group by book_degree
 
 
@@ -32,7 +32,8 @@ group by book_degree
 export const getBooksByCourse = async (args, context) => {
 
 	/* query
-
+select book_id,book_title, book_grade,book_price,book_image  from book
+group by course
 
 
 	*/
@@ -42,12 +43,26 @@ export const getBooksByCourse = async (args, context) => {
 export const getBooksByMinPrice = async (args, context) => {
 
 	/* query
+	select book_id,book_title, book_grade,book_price,book_image  from book
+	where price <= 300
 
 
 
 	*/
 	return "null"
 }
+
+//getBooksByMaxPrice
+export const getBooksByMaxPrice = async (args, context) => {
+
+	/* query
+
+
+
+	*/
+	return "null"
+}
+
 //getBooksByUniversity
 export const getBooksByUniversity = async (args, context) => {
 
