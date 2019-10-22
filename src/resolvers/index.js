@@ -1,4 +1,4 @@
-import { hello, getBooksByDegree, getLatestBooks, getBooksByCourse, getBooksByMinPrice, getBooksByUniversity } from './query'
+import { hello, getBooksByDegree, getLatestBooks, getBooksByCourse, getBooksByMinPrice, getBooksByMaxPrice, getBooksByUniversity } from './query'
 import { addBook } from './mutation'
 
 export const resolvers = {
@@ -8,7 +8,7 @@ export const resolvers = {
 		getBooksByDegree: (root, args, context) => getBooksByDegree(args, context),
 		getBooksByCourse: (root, args, context) => getBooksByCourse(args, context),
 		getBooksByMinPrice: (root, args, context) => getBooksByMinPrice(args, context),
-
+		getBooksByMaxPrice: (root, args, context) => getBooksByMaxPrice(args, context),
 		getBooksByUniversity: (root, args, context) => getBooksByUniversity(args, context),
 
 	},
