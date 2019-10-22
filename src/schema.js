@@ -51,7 +51,11 @@ type Mutation {
 type Query {
      hello: String!
      connection: String
-   
+   """
+A query that gets the latest books to be upload on the
+marketplace
+   """
+     getLatestBooks: [Book!]!
      getAllBooks: [Book]
      getOneBook(ID: Int): Book
 }
