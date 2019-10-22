@@ -56,6 +56,17 @@ A query that gets the latest books to be upload on the
 marketplace
    """
      getLatestBooks: [Book!]!
+     """
+A query that gets books by degree and then catergorizes them by 
+whatever degrees the users put in
+   """
+     getBooksByDegree: [Book!]!
+     """
+A query that gets books by course and then then catergorizes them by 
+whatever courses the users put in
+   """
+     """
+     getBooksByCourse: [Book!]!
      getAllBooks: [Book]
      getOneBook(ID: Int): Book
 }
