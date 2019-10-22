@@ -8,21 +8,53 @@ export const hello = (args, context) => {
 
 //getLatestBooks
 export const getLatestBooks = async (args, context) => {
+
+	/* query
+
+select * book_id,book_title, book_grade,book_price,book_image  from book
+where date_uploaded <= DATEADD(DAY,-5,GETDATE())
+
+	*/
 	return "null"
 }
 //getBooksByDegree
 export const getBooksByDegree = async (args, context) => {
+
+	/* query
+select * from book
+group by book_degree
+
+
+	*/
 	return "null"
 }
 //getBooksByCourse
 export const getBooksByCourse = async (args, context) => {
+
+	/* query
+
+
+
+	*/
 	return "null"
 }
 //getBooksByMinPrice
 export const getBooksByMinPrice = async (args, context) => {
+
+	/* query
+
+
+
+	*/
 	return "null"
 }
 //getBooksByUniversity
 export const getBooksByUniversity = async (args, context) => {
+
+	/* query
+
+
+
+	*/
 	return "null"
 }
