@@ -26,7 +26,11 @@ where date_uploaded <= DATEADD(DAY,-5,GETDATE())
 		await db.end()
 		return latestBooks.map(item => (
 			{
-				title: item.book_title
+				ID: item.book_id,
+				title: item.book_title,
+				grade: item.book_id,
+				price: item.book_price,
+				image: item.book_image
 			}
 		))
 	} catch (e) {
