@@ -138,7 +138,22 @@ select book_id,book_title, book_grade,book_price,book_image  from book
 
 
 	*/
-	return "null"
+	try {
+
+		let booksByMaxPrice = await db.query(`SELECT book_id,book_title, book_grade,book_price,book_image  FROM book
+		WHERE book_price  >= 500`)
+
+		await db.end()
+		return booksByMaxPrice.map(item => ({
+			ID: item.book_id,
+			title: item.book_title,
+			grade: item.book_id,
+			price: item.book_price,
+			image: item.book_image
+		}))
+	} catch (e) {
+		return e
+	}
 }
 
 //getBooksByUniversity
