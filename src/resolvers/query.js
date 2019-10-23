@@ -81,12 +81,25 @@ group by book_degree
 export const getBooksByCourse = async (args, context) => {
 
 	/* query
-select book_id,book_title, book_grade,book_price,book_image  from book
-group by course
+SELECT book_id,book_title, book_grade,book_price,book_image  FROM book
+GROUP BY course
 
 
 	*/
-	return "null"
+	try {
+		let booksByCourse = await db.query(`SELECT book_id,book_title, book_grade,book_price,book_image  FROM book
+GROUP BY course`)
+		await db.end()
+		return booksByCourse.map(item => ({
+			ID: item.book_id,
+			title: item.book_title,
+			grade: item.book_id,
+			price: item.book_price,
+			image: item.book_image
+		}))
+	} catch (e) {
+
+	}
 }
 //getBooksByMinPrice
 export const getBooksByMinPrice = async (args, context) => {
