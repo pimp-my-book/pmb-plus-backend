@@ -16,7 +16,17 @@ select book_id,book_title, book_grade,book_price,book_image  from book
 where date_uploaded <= DATEADD(DAY,-5,GETDATE())
 
 	*/
-	return "null"
+	try {
+
+		let latestBooks = await db.query(`SELECT book_id,book_title, book_grade,book_price,book_image  FROM book
+		WHERE date_uploaded <= DATEADD(DAY,-5,GETDATE())`)
+
+		console.log(latestBooks)
+		await db.end()
+		return latestBooks
+	} catch (e) {
+		return e
+	}
 }
 //getBooksByDegree
 export const getBooksByDegree = async (args, context) => {
