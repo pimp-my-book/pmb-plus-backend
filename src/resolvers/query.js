@@ -18,8 +18,9 @@ where date_uploaded <= DATEADD(DAY,-5,GETDATE())
 	*/
 	try {
 
-		let latestBooks = await db.query(`SELECT book_id,book_title, book_grade,book_price,book_image  FROM book
-		WHERE date_uploaded <= DATEADD(DAY,-5,GETDATE())`)
+		let latestBooks = await db.query(`SELECT book_id,book_title, book_grade,book_price,book_image  
+		FROM book 
+		WHERE date_uploaded <= date_add(curdate(),interval -5 day)`)
 
 		console.log(latestBooks)
 		await db.end()
