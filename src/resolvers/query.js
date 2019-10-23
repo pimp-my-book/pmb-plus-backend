@@ -165,5 +165,19 @@ group by book_univeristy
 
 
 	*/
-	return "null"
-}
+	try {
+
+		let booksByUniversity = await db.query(`SELECT book_id,book_title, book_grade,book_price,book_image,book_univeristy  FROM book
+		GROUP BY book_univeristy`)
+
+		await db.end()
+		return booksByUniversity.map(item => ({
+			ID: item.book_id,
+			title: item.book_title,
+			grade: item.book_id,
+			price: item.book_price,
+			image: item.book_image
+		}))
+	} catch (e) {
+		return e
+	}
