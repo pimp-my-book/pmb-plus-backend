@@ -105,7 +105,7 @@ GROUP BY book_course`)
 export const getBooksByMinPrice = async (args, context) => {
 
 	/* query
-	SELECT book_id,book_title, book_grade,book_price,book_image  from book
+	SELECT book_id,book_title, book_grade,book_price,book_image  FROM book
 	WHERE price <= 300
 
 
@@ -113,7 +113,9 @@ export const getBooksByMinPrice = async (args, context) => {
 	*/
 	try {
 
-		let booksByMinPrice = await db.query(``)
+		let booksByMinPrice = await db.query(`SELECT book_id,book_title, book_grade,book_price,book_image  FROM book
+		WHERE book_price <= 300`)
+
 		await db.end()
 		return booksByMinPrice.map(item => ({
 			ID: item.book_id,
