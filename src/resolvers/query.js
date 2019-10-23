@@ -46,7 +46,16 @@ group by book_degree
 
 
 	*/
-	return "null"
+	try {
+
+		let booksByDegree = await db.query(`SELECT book_id,book_title, book_grade,book_price,book_image  FROM book
+		GROUP BY book_degree`)
+
+		console.log(booksByDegree)
+		await db.end()
+	} catch (e) {
+		return e
+	}
 }
 //getBooksByCourse
 export const getBooksByCourse = async (args, context) => {
