@@ -111,7 +111,11 @@ export const getBooksByMinPrice = async (args, context) => {
 
 
 	*/
-	return "null"
+	try {
+
+	} catch (e) {
+		return e
+	}
 }
 
 //getBooksByMaxPrice
