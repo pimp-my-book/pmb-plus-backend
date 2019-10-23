@@ -48,11 +48,31 @@ group by book_degree
 	*/
 	try {
 
-		let booksByDegree = await db.query(`SELECT book_id,book_title, book_grade,book_price,book_image  FROM book
+		let booksByDegree = await db.query(`SELECT book_id,book_title, book_grade,book_price,book_image,book_degree  FROM book
 		GROUP BY book_degree`)
 
-		console.log(booksByDegree)
+
+
+		//console.log(booksByDegree)
+
+
+
+
+
+
 		await db.end()
+		/* add to frontend rather
+		let groupByDegree = booksByDegree.reduce((acc, it) =>
+			(acc[it.book_degree] = it, acc), {})
+		console.log(groupByDegree)
+*/
+		return booksByDegree.map(item => ({
+			ID: item.book_id,
+			title: item.book_title,
+			grade: item.book_id,
+			price: item.book_price,
+			image: item.book_image
+		}))
 	} catch (e) {
 		return e
 	}
