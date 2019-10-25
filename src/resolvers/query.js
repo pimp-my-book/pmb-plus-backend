@@ -178,7 +178,8 @@ group by book_univeristy
 			title: item.book_title,
 			grade: item.book_id,
 			price: item.book_price,
-			image: item.book_image
+			image: item.book_image,
+			univeristy: item.book_univeristy
 		}))
 	} catch (e) {
 		return e
