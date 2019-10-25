@@ -71,7 +71,8 @@ group by book_degree
 			title: item.book_title,
 			grade: item.book_id,
 			price: item.book_price,
-			image: item.book_image
+			image: item.book_image,
+			degree: item.book_degree
 		}))
 	} catch (e) {
 		return e
@@ -95,7 +96,8 @@ GROUP BY book_course`)
 			title: item.book_title,
 			grade: item.book_id,
 			price: item.book_price,
-			image: item.book_image
+			image: item.book_image,
+			course: item.book_course
 		}))
 	} catch (e) {
 
