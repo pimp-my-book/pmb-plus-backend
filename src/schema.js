@@ -51,7 +51,41 @@ type Mutation {
 type Query {
      hello: String!
      connection: String
-   
+   """
+A query that gets the latest books to be upload on the
+marketplace
+   """
+   getLatestBooks: [Book!]!
+
+     """
+A query that gets books by degree and then catergorizes them by 
+whatever degrees the users put in
+   """
+     getBooksByDegree: [Book!]!
+
+     """
+A query that gets books by course and then then catergorizes them by 
+whatever courses the users put in
+   """
+    getBooksByCourse: [Book!]!
+
+    """
+A query that gets books by their lowest price range
+    """
+    getBooksByMinPrice: [Book!]!
+
+    
+    """
+    A query that gets books by their highest price range
+        """
+        getBooksByMaxPrice: [Book!]!
+    
+        """
+A query that gets books by univeristy
+    """
+    getBooksByUniversity: [Book!]!
+
+
      getAllBooks: [Book]
      getOneBook(ID: Int): Book
 }
