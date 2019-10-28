@@ -89,7 +89,7 @@ GROUP BY course
 	*/
 	try {
 		let booksByCourse = await db.query(`SELECT book_id,book_title, book_grade,book_price,book_image,book_course  FROM book
-GROUP BY book_course`)
+`)
 		await db.end()
 		return booksByCourse.map(item => ({
 			ID: item.book_id,
