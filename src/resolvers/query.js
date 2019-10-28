@@ -49,7 +49,7 @@ group by book_degree
 	try {
 
 		let booksByDegree = await db.query(`SELECT book_id,book_title, book_grade,book_price,book_image,book_degree  FROM book
-		GROUP BY book_degree`)
+		ORDER BY book_degree`)
 
 
 
