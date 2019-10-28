@@ -28,7 +28,7 @@ where date_uploaded <= DATEADD(DAY,-5,GETDATE())
 			{
 				ID: item.book_id,
 				title: item.book_title,
-				grade: item.book_id,
+				grade: item.book_grade,
 				price: item.book_price,
 				image: item.book_image
 			}
@@ -69,7 +69,7 @@ group by book_degree
 		return booksByDegree.map(item => ({
 			ID: item.book_id,
 			title: item.book_title,
-			grade: item.book_id,
+			grade: item.book_grade,
 			price: item.book_price,
 			image: item.book_image,
 			degree: item.book_degree
@@ -94,7 +94,7 @@ GROUP BY course
 		return booksByCourse.map(item => ({
 			ID: item.book_id,
 			title: item.book_title,
-			grade: item.book_id,
+			grade: item.book_grade,
 			price: item.book_price,
 			image: item.book_image,
 			course: item.book_course
@@ -122,7 +122,7 @@ export const getBooksByMinPrice = async (args, context) => {
 		return booksByMinPrice.map(item => ({
 			ID: item.book_id,
 			title: item.book_title,
-			grade: item.book_id,
+			grade: item.book_grade,
 			price: item.book_price,
 			image: item.book_image
 		}))
@@ -149,7 +149,7 @@ select book_id,book_title, book_grade,book_price,book_image  from book
 		return booksByMaxPrice.map(item => ({
 			ID: item.book_id,
 			title: item.book_title,
-			grade: item.book_id,
+			grade: item.book_grade,
 			price: item.book_price,
 			image: item.book_image
 		}))
@@ -176,7 +176,7 @@ group by book_univeristy
 		return booksByUniversity.map(item => ({
 			ID: item.book_id,
 			title: item.book_title,
-			grade: item.book_id,
+			grade: item.book_grade,
 			price: item.book_price,
 			image: item.book_image,
 			univeristy: item.book_univeristy
