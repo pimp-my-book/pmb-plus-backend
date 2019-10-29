@@ -213,24 +213,26 @@ WHERE book_id = ?`, [args.ID])
 
 
 		await db.end
+		console.log(viewBook[0].book_title)
+
 
 		return {
-			title: viewBook.book_title,
-			description: viewBook.book_description,
-			author: viewBook.book_author,
-			grade: viewBook.book_grade,
-			price: viewBook.book_price,
-			image: viewBook.book_image,
-			edition: viewBook.book_edition,
-			location: viewBook.book_location,
-			ISBN: viewBook.book_isbn,
-			degree: viewBook.book_degree,
-			course: viewBook.book_course,
-			univeristy: viewBook.book_univeristy,
-			ownerEmail: viewBook.owner_email,
-			ownerName: viewBook.owner_name,
-			owner: viewBook.book_owner,
-			dateUploaded: viewBook.date_uploaded
+			title: viewBook[0].book_title,
+			description: viewBook[0].book_description,
+			author: viewBook[0].book_author,
+			grade: viewBook[0].book_grade,
+			price: viewBook[0].book_price,
+			image: viewBook[0].book_image,
+			edition: viewBook[0].book_edition,
+			location: viewBook[0].book_location,
+			ISBN: viewBook[0].book_isbn,
+			degree: viewBook[0].book_degree,
+			course: viewBook[0].book_course,
+			univeristy: viewBook[0].book_univeristy,
+			ownerEmail: viewBook[0].owner_email,
+			ownerName: viewBook[0].owner_name,
+			owner: viewBook[0].book_owner,
+			dateUploaded: viewBook[0].date_uploaded
 		}
 	} catch (e) {
 		return e
