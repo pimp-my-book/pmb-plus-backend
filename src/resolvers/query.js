@@ -228,25 +228,12 @@ WHERE book_id = VALUES(?)`, [args.ID])
 			degree: viewBook.book_degree,
 			course: viewBook.book_course,
 			univeristy: viewBook.book_univeristy,
+			ownerEmail: viewBook.owner_email,
+			ownerName: viewBook.owner_name,
+			owner: viewBook.book_owner,
+			dateUploaded: viewBook.date_uploaded
 		}
 	} catch (e) {
-
+		return e
 	}
 }
-
-viewBook.book_title,
-	,
-	,
-	,
-	viewBook.book_condition,
-	viewBook.date_uploaded,
-	,
-	,
-	,
-	,
-	,
-	,
-	,
-	viewBook.book_owner,
-	viewBook.owner_name,
-	viewBook.owner_email
