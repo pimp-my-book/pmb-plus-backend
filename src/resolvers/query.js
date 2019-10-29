@@ -189,5 +189,64 @@ group by book_univeristy
 
 //getOneBook
 export const getOneBook = async (args, context) => {
+	try {
+		let viewBook = await db.query(`SELECT book_id,
+book_title,
+book_description ,
+book_author,
+book_grade,
+book_price,
+book_condition,
+date_uploaded,
+book_image,
+book_edition,
+book_location,
+book_isbn,
+book_degree,
+book_course,
+book_univeristy,
+book_owner,
+owner_name,
+owner_email
 
+FROM book
+WHERE book_id = VALUES(?)`, [args.ID])
+
+
+		await db.end
+
+		return {
+			title: viewBook.book_title,
+			description: viewBook.book_description,
+			author: viewBook.book_author,
+			grade: viewBook.book_grade,
+			price: viewBook.book_price,
+			image: viewBook.book_image,
+			edition: viewBook.book_edition,
+			location: viewBook.book_location,
+			ISBN: viewBook.book_isbn,
+			degree: viewBook.book_degree,
+			course: viewBook.book_course,
+			univeristy: viewBook.book_univeristy,
+		}
+	} catch (e) {
+
+	}
 }
+
+viewBook.book_title,
+	,
+	,
+	,
+	viewBook.book_condition,
+	viewBook.date_uploaded,
+	,
+	,
+	,
+	,
+	,
+	,
+	,
+	viewBook.book_owner,
+	viewBook.owner_name,
+	viewBook.owner_email
