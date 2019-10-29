@@ -186,3 +186,8 @@ group by book_univeristy
 	}
 
 }
+
+//getOneBook
+export const getOneBook = async (args, context) => {
+
+}
