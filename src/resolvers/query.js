@@ -192,11 +192,10 @@ export const getOneBook = async (args, context) => {
 	try {
 		let viewBook = await db.query(`SELECT book_id,
 book_title,
-book_description ,
+book_description,
 book_author,
 book_grade,
 book_price,
-book_condition,
 date_uploaded,
 book_image,
 book_edition,
@@ -210,7 +209,7 @@ owner_name,
 owner_email
 
 FROM book
-WHERE book_id = VALUES(?)`, [args.ID])
+WHERE book_id = ?`, [args.ID])
 
 
 		await db.end
