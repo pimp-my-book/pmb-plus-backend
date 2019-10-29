@@ -35,6 +35,8 @@ type Book  {
     location: String!
     grade: String!
     owner: String!
+    ownerEmail: String
+    ownerName: String
     univeristy: String
     course: String
     degree: String
