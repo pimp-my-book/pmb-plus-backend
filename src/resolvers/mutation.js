@@ -176,6 +176,10 @@ export const editBook = async ({ input: args }, context) => {
 
 
         ])
+
+        await db.end()
+
+        return updatedBook[0]
     } catch (e) {
         return e
     }
