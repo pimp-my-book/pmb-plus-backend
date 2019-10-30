@@ -122,11 +122,26 @@ export const addBook = async ({ input: args }, context) => {
 
 */
 //editBook
-export const editBook = async (args, context) => {
+export const editBook = async ({ input: args }, context) => {
     try {
+        const editBookInput = {
+            ID: args.ID,
+            title: args.title,
+            description: args.description,
+            author: args.author,
+            grade: args.grade,
+            price: args.price,
+            image: args.image,
+            edition: args.edition,
+            location: args.location,
+            ISBN: args.ISBN,
+            degree: args.degree,
+            course: args.course,
+            univeristy: args.univeristy
+        }
 
     } catch (e) {
-
+        return e
     }
 }
 
