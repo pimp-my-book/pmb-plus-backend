@@ -213,7 +213,7 @@ WHERE book_id = ?`, [args.ID])
 
 
 		await db.end
-		console.log(viewBook[0].book_title)
+
 
 
 		return {
