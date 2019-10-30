@@ -121,4 +121,12 @@ export const addBook = async ({ input: args }, context) => {
 
 
 */
+//editBook
+export const editBook = async (args, context) => {
+    try {
+
+    } catch (e) {
+
+    }
+}
 
