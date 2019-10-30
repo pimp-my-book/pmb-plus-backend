@@ -20,7 +20,7 @@ input addBookInput {
 }
 
 input editBookInput {
-    ID: String
+    ID: Int!
     price: String
     description: String
     image: String
