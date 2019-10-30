@@ -65,7 +65,7 @@ type S3Payload {
 type Mutation {
     addBook(input: addBookInput) : Book
     addBooks(fileName: String!, fileType: String!): S3Payload!
-    editBook(input: editBookInput ): Book
+    editBook(input: editBookInput ): Boolean!
 }
 type Query {
      hello: String!

@@ -142,23 +142,10 @@ export const editBook = async ({ input: args }, context) => {
 
         let updatedBook = db.query(`
         UPDATE book
-        SET 
-        book_title = ?,
-        book_description = ?,
-        book_author = ?,
-        book_grade = ?,
-        book_price = ?,
-        
-        book_image = ?,
-        book_edition = ?,
-        book_location = ?,
-        book_isbn = ?,
-        book_degree = ?,
-        book_course = ?,
-        book_univeristy = ?
+        SET book_title = ?,book_description = ?,book_author = ?,book_grade = ?,book_price = ?,book_image = ?,book_edition = ?,book_location = ?,book_isbn = ?,book_degree = ?, book_course = ?,book_univeristy = ?
 
-        FROM book
-        WHERE book_id = ?
+
+        WHERE book_id = ?;
         `, [
             editBookInput.title,
             editBookInput.description,
@@ -173,13 +160,11 @@ export const editBook = async ({ input: args }, context) => {
             editBookInput.course,
             editBookInput.univeristy,
             editBookInput.ID
-
-
         ])
 
         await db.end()
-
-        return updatedBook[0]
+        console.log(updatedBook)
+        return true
     } catch (e) {
         return e
     }
