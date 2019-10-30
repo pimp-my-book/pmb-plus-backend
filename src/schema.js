@@ -19,6 +19,22 @@ input addBookInput {
   
 }
 
+input editBookInput {
+    ID: String1
+    price: String
+    description: String
+    image: String
+    edition: String
+    title: String
+    author: String
+    ISBN: String
+    grade: String
+    location: String
+    univeristy: String
+    course: String
+    degree: String
+  
+}
 """
 A book type 
 """
@@ -49,6 +65,7 @@ type S3Payload {
 type Mutation {
     addBook(input: addBookInput) : Book
     addBooks(fileName: String!, fileType: String!): S3Payload!
+    editBook(input: editBookInput ): Book
 }
 type Query {
      hello: String!
