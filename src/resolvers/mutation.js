@@ -140,6 +140,42 @@ export const editBook = async ({ input: args }, context) => {
             univeristy: args.univeristy
         }
 
+        let updatedBook = db.query(`
+        UPDATE book
+        SET 
+        book_title = ?,
+        book_description = ?,
+        book_author = ?,
+        book_grade = ?,
+        book_price = ?,
+        
+        book_image = ?,
+        book_edition = ?,
+        book_location = ?,
+        book_isbn = ?,
+        book_degree = ?,
+        book_course = ?,
+        book_univeristy = ?
+
+        FROM book
+        WHERE book_id = ?
+        `, [
+            editBookInput.title,
+            editBookInput.description,
+            editBookInput.author,
+            editBookInput.grade,
+            editBookInput.price,
+            editBookInput.image,
+            editBookInput.edition,
+            editBookInput.location,
+            editBookInput.ISBN,
+            editBookInput.degree,
+            editBookInput.course,
+            editBookInput.univeristy,
+            editBookInput.ID
+
+
+        ])
     } catch (e) {
         return e
     }
