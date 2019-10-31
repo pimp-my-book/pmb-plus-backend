@@ -258,6 +258,7 @@ export const getMyBooks = async (args, context) => {
 			return usersBooks.map(item => ({
 				ID: item.book_id,
 				title: item.book_title,
+				image: item.book_image
 
 			}))
 		}
