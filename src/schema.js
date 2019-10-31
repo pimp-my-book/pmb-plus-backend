@@ -107,6 +107,7 @@ A query that gets books by univeristy
 
      getAllBooks: [Book]
      getOneBook(ID: Int): Book
+     getMyBooks(owner: String!): [Book!]!
 }
 `
 export { schema }
