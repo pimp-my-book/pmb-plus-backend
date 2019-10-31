@@ -246,6 +246,9 @@ WHERE book_id = ?`, [args.ID])
 export const getMyBooks = async (args, context) => {
 	try {
 
+		let usersBooks = db.query(`SELECT book_id,book_title,book_image FROM book WHERE book_owner = ?`, [args.owner])
+
+		console.log(usersBooks)
 	} catch (e) {
 		return e
 	}
