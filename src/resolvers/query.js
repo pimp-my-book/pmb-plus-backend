@@ -251,11 +251,17 @@ export const getMyBooks = async (args, context) => {
 		console.log(usersBooks)
 
 		await db.end()
-		return usersBooks.map(item => ({
-			ID: item.book_id,
-			title: item.book_title,
 
-		}))
+		if (usersBooks.length < 0) {
+			return 'You have not posted any books...'
+		} else {
+			return usersBooks.map(item => ({
+				ID: item.book_id,
+				title: item.book_title,
+
+			}))
+		}
+
 	} catch (e) {
 		return e
 	}
