@@ -249,6 +249,13 @@ export const getMyBooks = async (args, context) => {
 		let usersBooks = await db.query(`SELECT book_id,book_title,book_image FROM book WHERE book_owner = ?`, [args.owner])
 
 		console.log(usersBooks)
+
+		await db.end()
+		return usersBooks.map(item => ({
+			ID: item.book_id,
+			title: item.book_title,
+
+		}))
 	} catch (e) {
 		return e
 	}
