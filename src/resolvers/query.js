@@ -240,3 +240,13 @@ WHERE book_id = ?`, [args.ID])
 		return e
 	}
 }
+
+
+// getMyBooks
+export const getMyBooks = async (args, context) => {
+	try {
+
+	} catch (e) {
+		return e
+	}
+}
