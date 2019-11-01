@@ -43,7 +43,7 @@ type Book  {
     dateUploaded: String!
     description: String!
     price: String!
-    image: String!
+    image: String
     title: String!
     author: String!
     ISBN: String!
