@@ -170,3 +170,12 @@ export const editBook = async ({ input: args }, context) => {
     }
 }
 
+
+//deactivateBook
+export const deactivateBook = async (args, context) => {
+    try {
+
+    } catch (e) {
+        return e
+    }
+}
