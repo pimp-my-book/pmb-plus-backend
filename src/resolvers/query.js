@@ -66,6 +66,7 @@ group by book_degree
 			(acc[it.book_degree] = it, acc), {})
 		console.log(groupByDegree)
 */
+		//console.log(booksByDegree)
 		return booksByDegree.map(item => ({
 			ID: item.book_id,
 			title: item.book_title,
@@ -91,6 +92,7 @@ GROUP BY course
 		let booksByCourse = await db.query(`SELECT book_id,book_title, book_grade,book_price,book_image,book_course  FROM book
 `)
 		await db.end()
+		console.log(booksByCourse)
 		return booksByCourse.map(item => ({
 			ID: item.book_id,
 			title: item.book_title,
@@ -214,7 +216,7 @@ WHERE book_id = ?`, [args.ID])
 
 		await db.end
 
-
+		console.log(viewBook)
 
 		return {
 			title: viewBook[0].book_title,
@@ -234,6 +236,33 @@ WHERE book_id = ?`, [args.ID])
 			owner: viewBook[0].book_owner,
 			dateUploaded: viewBook[0].date_uploaded
 		}
+	} catch (e) {
+		return e
+	}
+}
+
+
+// getMyBooks
+export const getMyBooks = async (args, context) => {
+	try {
+
+		let usersBooks = await db.query(`SELECT book_id,book_title,book_image FROM book WHERE book_owner = ?`, [args.owner])
+
+		console.log(usersBooks)
+
+		await db.end()
+
+		if (usersBooks.length < 0) {
+			return 'You have not posted any books...'
+		} else {
+			return usersBooks.map(item => ({
+				ID: item.book_id,
+				title: item.book_title,
+				image: item.book_image
+
+			}))
+		}
+
 	} catch (e) {
 		return e
 	}

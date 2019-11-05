@@ -19,6 +19,22 @@ input addBookInput {
   
 }
 
+input editBookInput {
+    ID: Int!
+    price: String
+    description: String
+    image: String
+    edition: String
+    title: String
+    author: String
+    ISBN: String
+    grade: String
+    location: String
+    univeristy: String
+    course: String
+    degree: String
+  
+}
 """
 A book type 
 """
@@ -27,13 +43,13 @@ type Book  {
     dateUploaded: String!
     description: String!
     price: String!
-    image: String!
+    image: String
     title: String!
     author: String!
     ISBN: String!
     edition: String!
     location: String!
-    grade: String!
+    grade: String
     owner: String!
     ownerEmail: String
     ownerName: String
@@ -49,6 +65,7 @@ type S3Payload {
 type Mutation {
     addBook(input: addBookInput) : Book
     addBooks(fileName: String!, fileType: String!): S3Payload!
+    editBook(input: editBookInput ): Boolean!
 }
 type Query {
      hello: String!
@@ -90,6 +107,7 @@ A query that gets books by univeristy
 
      getAllBooks: [Book]
      getOneBook(ID: Int): Book
+     getMyBooks(owner: String!): [Book!]!
 }
 `
 export { schema }
