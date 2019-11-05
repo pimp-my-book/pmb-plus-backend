@@ -170,3 +170,27 @@ export const editBook = async ({ input: args }, context) => {
     }
 }
 
+
+//deactivateBook
+export const deactivateBook = async (args, context) => {
+    try {
+
+        let deactivatedBook = db.query(`UPDATE book SET deactivated_status = TRUE WHERE book_owner = ? AND book_id = ?`, [args.owner, args.ID])
+        await db.end()
+        return true
+    } catch (e) {
+        return e
+    }
+}
+
+//markAsSold
+export const markAsSold = async (args, context) => {
+    try {
+
+        let soldBook = db.query(`UPDATE book SET sold_Status = TRUE WHERE book_owner = ? AND book_id = ?`, [args.owner, args.ID])
+        await db.end()
+        return true
+    } catch (e) {
+        return e
+    }
+}
