@@ -182,3 +182,15 @@ export const deactivateBook = async (args, context) => {
         return e
     }
 }
+
+//markAsSold
+export const markAsSold = async (args, context) => {
+    try {
+
+        let soldBook = db.query(`UPDATE book SET sold_Status = TRUE WHERE book_owner = ? AND book_id = ?`, [args.owner, args.ID])
+        await db.end()
+        return true
+    } catch (e) {
+        return e
+    }
+}
