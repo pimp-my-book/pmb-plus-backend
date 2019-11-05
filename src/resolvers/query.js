@@ -216,7 +216,7 @@ WHERE book_id = ?`, [args.ID])
 
 		await db.end
 
-
+		console.log(viewBook)
 
 		return {
 			title: viewBook[0].book_title,
