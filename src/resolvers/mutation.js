@@ -175,7 +175,7 @@ export const editBook = async ({ input: args }, context) => {
 export const deactivateBook = async (args, context) => {
     try {
 
-        let deactivatedBook = db.query(`UPDATE book SET deactivated_status = FALSE WHERE book_owner = ?`, [args.owner])
+        let deactivatedBook = db.query(`UPDATE book SET deactivated_status = TRUE WHERE book_owner = ? AND book_id = ?`, [args.owner, args.ID])
         await db.end()
         return true
     } catch (e) {
