@@ -267,3 +267,12 @@ export const getMyBooks = async (args, context) => {
 		return e
 	}
 }
+
+//searchAllBooks
+export const searchAllBooks = async (args, context) => {
+	try {
+
+	} catch (e) {
+		return e
+	}
+}
