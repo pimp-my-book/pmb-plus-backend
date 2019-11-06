@@ -271,7 +271,14 @@ export const getMyBooks = async (args, context) => {
 //searchAllBooks
 export const searchAllBooks = async (args, context) => {
 	try {
+		let searchedBooks = db.query('SELECT book_id,book_title,book_image FROM books WHERE book_title LIKE  %?% or book_isbn LIKE %?% or book_author LIKE %?%', [args.searchTerm])
 
+		await await db.end()
+		return searchedBooks.map(item => ({
+			ID: item.book_id,
+			title: item.book_title,
+			image: item.book_image
+		}))
 	} catch (e) {
 		return e
 	}
