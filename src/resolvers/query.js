@@ -271,9 +271,11 @@ export const getMyBooks = async (args, context) => {
 //searchAllBooks
 export const searchAllBooks = async (args, context) => {
 	try {
-		let searchedBooks = db.query('SELECT book_id,book_title,book_image FROM books WHERE book_title LIKE  %?% or book_isbn LIKE %?% or book_author LIKE %?%', [args.searchTerm, args.searchTerm, args.searchTerm])
+		const whereQuery = `book_title LIKE "%'?'%" `
+		let searchedBooks = await db.query(`SELECT book_id,book_title,book_image FROM book WHERE ${whereQuery} `, [args.searchTerm])
 
 		await await db.end()
+		console.log(searchedBooks)
 		return searchedBooks.map(item => ({
 			ID: item.book_id,
 			title: item.book_title,
@@ -282,4 +284,6 @@ export const searchAllBooks = async (args, context) => {
 	} catch (e) {
 		return e
 	}
+
+	//or book_isbn LIKE %?% or book_author LIKE %?%
 }
