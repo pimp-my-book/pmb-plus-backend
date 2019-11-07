@@ -111,7 +111,7 @@ A query that gets books by univeristy
      getOneBook(ID: Int): Book
      getMyBooks(owner: String!): [Book!]!
      searchAllBooks(searchTerm:String!): [Book!]!
-     getBooksAtAUniversity: [Book!]!
+     getBooksAtAUniversity(university: String!): [Book!]!
 }
 `
 export { schema }
