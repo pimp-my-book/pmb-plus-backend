@@ -294,8 +294,17 @@ export const getBooksAtAUniversity = async (args, context) => {
 		let booksFromUniversity = await db.query(`SELECT book_id,book_title, book_grade,book_price,book_image,book_univeristy FROM book WHERE book_univeristy = ?`, [args.university])
 
 		await db.end()
-		console.log(booksFromUniversity)
+		await await db.end()
 
+		return booksFromUniversity.map(item => ({
+			ID: item.book_id,
+			title: item.book_title,
+			image: item.book_image,
+			grade: item.book_grade,
+			price: item.book_price,
+			image: item.book_image,
+			univeristy: item.book_univeristy
+		}))
 	} catch (e) {
 		return e
 	}
