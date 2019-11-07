@@ -291,7 +291,10 @@ export const searchAllBooks = async (args, context) => {
 //getBooksAtAUniversity
 export const getBooksAtAUniversity = async (args, context) => {
 	try {
-		let
+		let booksFromUniversity = await db.query(`SELECT book_id,book_title, book_grade,book_price,book_image,book_univeristy FROM book WHERE book_univeristy = ?`, [args.university])
+
+		await db.end()
+		console.log(booksFromUniversity)
 
 	} catch (e) {
 		return e
