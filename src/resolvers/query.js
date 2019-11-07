@@ -287,3 +287,13 @@ export const searchAllBooks = async (args, context) => {
 
 	//or book_isbn LIKE %?% or book_author LIKE %?%
 }
+
+//getBooksAtAUniversity
+export const getBooksAtAUniversity = async (args, context) => {
+	try {
+
+
+	} catch (e) {
+		return e
+	}
+}
