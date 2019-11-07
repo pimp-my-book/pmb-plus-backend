@@ -271,8 +271,8 @@ export const getMyBooks = async (args, context) => {
 //searchAllBooks
 export const searchAllBooks = async (args, context) => {
 	try {
-		const whereQuery = `book_title LIKE "%'?'%" `
-		let searchedBooks = await db.query(`SELECT book_id,book_title,book_image FROM book WHERE ${whereQuery} `, [args.searchTerm])
+		const whereQuery = `book_title LIKE %?% `
+		let searchedBooks = await db.query("SELECT book_id,book_title,book_image FROM book WHERE  book_title REGEXP ? OR book_isbn LIKE ? OR book_author REGEXP ?", [args.searchTerm, args.searchTerm, args.searchTerm])
 
 		await await db.end()
 		console.log(searchedBooks)
