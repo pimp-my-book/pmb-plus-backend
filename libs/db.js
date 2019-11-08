@@ -37,11 +37,11 @@ const isProd = process.env.ENV === 'prodcution'
 const isDev = process.env.env_Stage
 
 
-const db = clientLocal
+const db = clientDev
 
 //isDev === 'development' ? clientDev : clientProd
 // isProd ? clientProd : isDev ? clientDev :
 
-console.log(db.query())
+//console.log(db.query())
 
 module.exports = db
