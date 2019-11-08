@@ -267,3 +267,45 @@ export const getMyBooks = async (args, context) => {
 		return e
 	}
 }
+
+//searchAllBooks
+export const searchAllBooks = async (args, context) => {
+	try {
+		const whereQuery = `book_title LIKE %?% `
+		let searchedBooks = await db.query("SELECT book_id,book_title,book_image FROM book WHERE  book_title REGEXP ? OR book_isbn LIKE ? OR book_author REGEXP ?", [args.searchTerm, args.searchTerm, args.searchTerm])
+
+		await await db.end()
+		console.log(searchedBooks)
+		return searchedBooks.map(item => ({
+			ID: item.book_id,
+			title: item.book_title,
+			image: item.book_image
+		}))
+	} catch (e) {
+		return e
+	}
+
+	//or book_isbn LIKE %?% or book_author LIKE %?%
+}
+
+//getBooksAtAUniversity
+export const getBooksAtAUniversity = async (args, context) => {
+	try {
+		let booksFromUniversity = await db.query(`SELECT book_id,book_title, book_grade,book_price,book_image,book_univeristy FROM book WHERE book_univeristy = ?`, [args.university])
+
+		await db.end()
+		await await db.end()
+
+		return booksFromUniversity.map(item => ({
+			ID: item.book_id,
+			title: item.book_title,
+			image: item.book_image,
+			grade: item.book_grade,
+			price: item.book_price,
+			image: item.book_image,
+			univeristy: item.book_univeristy
+		}))
+	} catch (e) {
+		return e
+	}
+}

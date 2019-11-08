@@ -36,11 +36,12 @@ const clientProd = Client({
 const isProd = process.env.ENV === 'prodcution'
 const isDev = process.env.env_Stage
 
-console.log(process.env.NODE_ENV)
-const db = clientLocal
+
+const db = clientDev
 
 //isDev === 'development' ? clientDev : clientProd
 // isProd ? clientProd : isDev ? clientDev :
 
-console.log(db)
+//console.log(db.query())
+
 module.exports = db
