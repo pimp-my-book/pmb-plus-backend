@@ -48,7 +48,7 @@ type Book  {
     author: String!
     ISBN: String!
     edition: String!
-    location: String!
+    location: String
     grade: String
     owner: String!
     ownerEmail: String
