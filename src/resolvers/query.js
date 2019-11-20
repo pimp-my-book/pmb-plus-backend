@@ -48,7 +48,7 @@ group by book_degree
 	*/
 	try {
 
-		let booksByDegree = await db.query(`SELECT book_id,book_title, book_grade,book_price,book_image,book_degree  FROM book
+		let booksByDegree = await db.query(`SELECT book_id,book_title, book_grade,book_price,book_image,book_degree, book_location  FROM book
 		ORDER BY book_degree`)
 
 
@@ -90,7 +90,7 @@ GROUP BY course
 
 	*/
 	try {
-		let booksByCourse = await db.query(`SELECT book_id,book_title, book_grade,book_price,book_image,book_course  FROM book
+		let booksByCourse = await db.query(`SELECT book_id,book_title, book_grade,book_price,book_image,book_course, book_location FROM book
 `)
 		await db.end()
 		console.log(booksByCourse)
