@@ -267,7 +267,9 @@ export const hideEmail = async (args, context) => {
 //hideNumber
 export const hideNumber = async (args, context) => {
     try {
-
+        let hideNumberPreference = db.query(`UPDATE settings SET show_number = FALSE WHERE users_id = ?`, [args.userID])
+        await db.end()
+        return true
     } catch (e) {
         return e
     }
