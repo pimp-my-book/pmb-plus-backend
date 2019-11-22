@@ -45,6 +45,13 @@ CREATE TABLE IF NOT EXISTS book
      FOREIGN KEY(product_id) REFERENCES product(product_id) ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
+CREATE TABLE IF NOT EXISTS settings (
+settings_id MEDIUMINT UNSIGNED not null AUTO_INCREMENT primary key,
+show_email boolean,
+show_number boolean,
+users_id varchar(250) not null
+); 
+
 /*
 
 ALTER TABLE book
