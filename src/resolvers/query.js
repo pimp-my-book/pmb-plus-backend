@@ -316,9 +316,8 @@ export const getBooksAtAUniversity = async (args, context) => {
 
 export const getUsersSettings = async (args, context) => {
 	try {
-		let usersSettings = db.query(`SELECT settings_id,show_email,show_number FROM settings WHERE users_id = ?`, [args.userID])
+		let usersSettings = await db.query(`SELECT settings_id,show_email,show_number FROM settings WHERE users_id = ?`, [args.userID])
 		await db.end()
-
 		return {
 			ID: usersSettings[0].settings_id,
 			showEmail: usersSettings[0].show_email,

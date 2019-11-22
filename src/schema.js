@@ -129,7 +129,7 @@ A query that gets books by univeristy
      getMyBooks(owner: String!): [Book!]!
      searchAllBooks(searchTerm:String!): [Book!]!
      getBooksAtAUniversity(university: String!): [Book!]!
-     getUsersSettings(userId: String!): Settings!
+     getUsersSettings(userID: String!): Settings!
 }
 `
 export { schema }
