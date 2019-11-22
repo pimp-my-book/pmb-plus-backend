@@ -311,3 +311,13 @@ export const getBooksAtAUniversity = async (args, context) => {
 		return e
 	}
 }
+
+//getUsersSettings
+
+export const getUsersSettings = async (args, context) => {
+	try {
+
+	} catch (e) {
+		return e
+	}
+}
