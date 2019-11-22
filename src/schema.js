@@ -79,7 +79,10 @@ type Mutation {
     editBook(input: editBookInput ): Boolean!
     deactivateBook(owner: String!, ID: Int!): Boolean!
     markAsSold(owner: String!, ID: Int!): Boolean!
+    editSettings(showEmail: Boolean,showNumber: Boolean,userID: String): Settings
 }
+
+
 type Query {
      hello: String!
      connection: String
