@@ -79,8 +79,8 @@ type Mutation {
     editBook(input: editBookInput ): Boolean!
     deactivateBook(owner: String!, ID: Int!): Boolean!
     markAsSold(owner: String!, ID: Int!): Boolean!
-    editEmailSettings(showEmail: Boolean,userID: String): Settings
-    editNumberSettings(showNumber: Boolean,userID: String): Settings
+    editEmailSettings(showEmail: Boolean,userID: String): Boolean!
+    editNumberSettings(showNumber: Boolean,userID: String): Boolean!
 
 }
 
