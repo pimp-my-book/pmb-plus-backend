@@ -251,3 +251,12 @@ export const showNumber = async (args, context) => {
         return e
     }
 }
+
+//hideEmail 
+export const hideEmail = async (args, context) => {
+    try {
+
+    } catch (e) {
+        return e
+    }
+}
