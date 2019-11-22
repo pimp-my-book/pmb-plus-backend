@@ -58,6 +58,17 @@ type Book  {
     degree: String
    
 }
+
+"""
+A settings type for the users' email/phone preferences 
+"""
+type Settings {
+    ID: Int!
+    showEmail: Boolean
+    showNumber: Boolean
+    userID: String
+}
+
 type S3Payload {
     signedRequest: String!,
     url: String!
