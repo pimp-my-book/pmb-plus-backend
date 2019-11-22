@@ -250,7 +250,7 @@ export const getMyBooks = async (args, context) => {
 
 		let usersBooks = await db.query(`SELECT book_id,book_title,book_image FROM book WHERE book_owner = ?`, [args.owner])
 
-		console.log(usersBooks)
+
 
 		await db.end()
 
@@ -277,7 +277,7 @@ export const searchAllBooks = async (args, context) => {
 		let searchedBooks = await db.query("SELECT book_id,book_title,book_image FROM book WHERE  book_title REGEXP ? OR book_isbn LIKE ? OR book_author REGEXP ?", [args.searchTerm, args.searchTerm, args.searchTerm])
 
 		await await db.end()
-		console.log(searchedBooks)
+
 		return searchedBooks.map(item => ({
 			ID: item.book_id,
 			title: item.book_title,
@@ -296,7 +296,7 @@ export const getBooksAtAUniversity = async (args, context) => {
 		let booksFromUniversity = await db.query(`SELECT book_id,book_title, book_grade,book_price,book_image,book_univeristy FROM book WHERE book_univeristy = ?`, [args.university])
 
 		await db.end()
-		await await db.end()
+
 
 		return booksFromUniversity.map(item => ({
 			ID: item.book_id,
@@ -316,7 +316,15 @@ export const getBooksAtAUniversity = async (args, context) => {
 
 export const getUsersSettings = async (args, context) => {
 	try {
+		let usersSettings = db.query(`SELECT settings_id,show_email,show_number FROM settings WHERE users_id = ?`, [args.userID])
+		await db.end()
 
+		return {
+			ID: usersSettings[0].settings_id,
+			showEmail: usersSettings[0].show_email,
+			showNumber: usersSettings[0].show_number
+
+		}
 	} catch (e) {
 		return e
 	}
