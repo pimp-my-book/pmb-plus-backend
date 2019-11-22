@@ -197,7 +197,7 @@ export const markAsSold = async (args, context) => {
 
 //edit getUsersSettings
 
-export const getUsersSettings = async (Args, context) => {
+export const editEmailSettings = async (Args, context) => {
     try {
 
     } catch (e) {
