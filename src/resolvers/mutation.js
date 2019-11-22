@@ -242,7 +242,7 @@ export const showNumber = async (args, context) => {
             let insertUser = db.query(`INSERT INTO settings(users_id) VALUES(?)`, [args.userID])
             await db.end()
             //then update their show_number preference
-            let emailSettings = db.query(`UPDATE settings SET show_number = TRUE WHERE users_id = ?`, [args.userID])
+            let numberSettings = db.query(`UPDATE settings SET show_number = TRUE WHERE users_id = ?`, [args.userID])
             await db.end()
             return true
         }
