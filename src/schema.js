@@ -81,7 +81,8 @@ type Mutation {
     markAsSold(owner: String!, ID: Int!): Boolean!
     showEmail(showEmail: Boolean,userID: String): Boolean!
     showNumber(showNumber: Boolean,userID: String): Boolean!
-
+    hideEmail(showEmail: Boolean,userID: String): Boolean!
+    hideNumber(showNumber: Boolean,userID: String): Boolean!
 }
 
 
