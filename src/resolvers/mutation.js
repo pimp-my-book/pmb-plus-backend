@@ -199,24 +199,25 @@ export const markAsSold = async (args, context) => {
 
 export const showEmail = async (args, context) => {
     try {
+        //First check if the user is in the table
         const isUserInTable = await db.query(`SELECT users_id FROM settings WHERE users_id = ?`, [args.userID])
-        console.log(isUserInTable)
+
+        //if the user is in the table, go ahead and update their email settings
         if (Array.isArray(isUserInTable) && isUserInTable.length) {
             let emailSettings = db.query(`UPDATE settings SET show_email = TRUE WHERE users_id = ?`, [args.userID])
             await db.end()
             return true
         } else {
 
-
+            //if not first insert them into the table
             let insertUser = db.query(`INSERT INTO settings(users_id) VALUES(?)`, [args.userID])
             await db.end()
+            //then update their email preference
             let emailSettings = db.query(`UPDATE settings SET show_email = TRUE WHERE users_id = ?`, [args.userID])
             await db.end()
             return true
         }
-        // let emailSettings = db.query(`UPDATE settings SET show_email = TRUE WHERE users_id = ?`, [args.userID])
-        await db.end()
-        return true
+
 
     } catch (e) {
         return e
