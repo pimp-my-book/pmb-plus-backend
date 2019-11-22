@@ -1,5 +1,5 @@
 import { hello, getBooksAtAUniversity, getOneBook, getMyBooks, getBooksByDegree, getLatestBooks, getBooksByCourse, getBooksByMinPrice, getBooksByMaxPrice, getBooksByUniversity, searchAllBooks } from './query'
-import { addBook, editBook, deactivateBook, markAsSold, showEmail, showNumber } from './mutation'
+import { addBook, editBook, deactivateBook, markAsSold, showEmail, showNumber, hideNumber, hideEmail } from './mutation'
 
 export const resolvers = {
 	Query: {
@@ -23,6 +23,8 @@ export const resolvers = {
 		deactivateBook: (root, args, context) => deactivateBook(args, context),
 		markAsSold: (root, args, context) => markAsSold(args, context),
 		showEmail: (root, args, context) => showEmail(args, context),
-		showNumber: (root, args, context) => showNumber(args, context)
+		showNumber: (root, args, context) => showNumber(args, context),
+		hideNumber: (root, args, context) => hideNumber(args, context),
+		hideEmail: (root, args, context) => hideEmail(args, context)
 	}
 }
