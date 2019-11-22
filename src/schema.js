@@ -64,8 +64,8 @@ A settings type for the users' email/phone preferences
 """
 type Settings {
     ID: Int!
-    showEmail: String
-    showNumber: String
+    showEmail: Boolean
+    showNumber: Boolean
     userID: String
 }
 
@@ -79,8 +79,8 @@ type Mutation {
     editBook(input: editBookInput ): Boolean!
     deactivateBook(owner: String!, ID: Int!): Boolean!
     markAsSold(owner: String!, ID: Int!): Boolean!
-    editEmailSettings(showEmail: String,userID: String): Boolean!
-    editNumberSettings(showNumber: String,userID: String): Boolean!
+    showEmail(showEmail: Boolean,userID: String): Boolean!
+    showNumber(showNumber: Boolean,userID: String): Boolean!
 
 }
 

@@ -197,7 +197,7 @@ export const markAsSold = async (args, context) => {
 
 //edit getUsersSettings
 
-export const editEmailSettings = async (Args, context) => {
+export const editEmailSettings = async (args, context) => {
     try {
         let emailSettings = db.query(`UPDATE settings SET show_email = ? WHERE users_id = ?`, [args.showEmail, args.userID])
         await db.end()
