@@ -220,7 +220,9 @@ WHERE book_id = ?`, [args.ID])
 
 		console.log(viewBook)
 
-		//const makeNumberVisiable 
+		const makeNumberVisiable = await db.query(`SELECT show_number FROM settings WHERE users_id = ?`, [viewBook[0].book_owner])
+		await db.end
+		console.log(makeNumberVisiable)
 		return {
 			title: viewBook[0].book_title,
 			description: viewBook[0].book_description,
