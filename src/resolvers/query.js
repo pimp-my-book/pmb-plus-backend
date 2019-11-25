@@ -225,7 +225,7 @@ WHERE book_id = ?`, [args.ID])
 		await db.end
 		console.log(makeNumberVisiable[0].show_number)
 
-		if (makeNumberVisiable[0].show_number === 1) {
+		if (makeNumberVisiable[0].show_number === 1 || makeNumberVisiable[0].show_email === 1) {
 			return {
 				title: viewBook[0].book_title,
 				description: viewBook[0].book_description,
