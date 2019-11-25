@@ -210,7 +210,8 @@ book_course,
 book_univeristy,
 book_owner,
 owner_name,
-owner_email
+owner_email,
+owner_number
 
 FROM book
 WHERE book_id = ?`, [args.ID])
@@ -222,25 +223,49 @@ WHERE book_id = ?`, [args.ID])
 
 		const makeNumberVisiable = await db.query(`SELECT show_number FROM settings WHERE users_id = ?`, [viewBook[0].book_owner])
 		await db.end
-		console.log(makeNumberVisiable)
-		return {
-			title: viewBook[0].book_title,
-			description: viewBook[0].book_description,
-			author: viewBook[0].book_author,
-			grade: viewBook[0].book_grade,
-			price: viewBook[0].book_price,
-			image: viewBook[0].book_image,
-			edition: viewBook[0].book_edition,
-			location: viewBook[0].book_location,
-			ISBN: viewBook[0].book_isbn,
-			degree: viewBook[0].book_degree,
-			course: viewBook[0].book_course,
-			univeristy: viewBook[0].book_univeristy,
-			ownerEmail: viewBook[0].owner_email,
-			ownerName: viewBook[0].owner_name,
-			owner: viewBook[0].book_owner,
-			dateUploaded: viewBook[0].date_uploaded
+		console.log(makeNumberVisiable[0].show_number)
+
+		if (makeNumberVisiable[0].show_number === 1) {
+			return {
+				title: viewBook[0].book_title,
+				description: viewBook[0].book_description,
+				author: viewBook[0].book_author,
+				grade: viewBook[0].book_grade,
+				price: viewBook[0].book_price,
+				image: viewBook[0].book_image,
+				edition: viewBook[0].book_edition,
+				location: viewBook[0].book_location,
+				ISBN: viewBook[0].book_isbn,
+				degree: viewBook[0].book_degree,
+				course: viewBook[0].book_course,
+				univeristy: viewBook[0].book_univeristy,
+				ownerEmail: viewBook[0].owner_email,
+				ownerName: viewBook[0].owner_name,
+				ownerPhone: viewBook[0].owner_number,
+				owner: viewBook[0].book_owner,
+				dateUploaded: viewBook[0].date_uploaded
+			}
+		} else {
+			return {
+				title: viewBook[0].book_title,
+				description: viewBook[0].book_description,
+				author: viewBook[0].book_author,
+				grade: viewBook[0].book_grade,
+				price: viewBook[0].book_price,
+				image: viewBook[0].book_image,
+				edition: viewBook[0].book_edition,
+				location: viewBook[0].book_location,
+				ISBN: viewBook[0].book_isbn,
+				degree: viewBook[0].book_degree,
+				course: viewBook[0].book_course,
+				univeristy: viewBook[0].book_univeristy,
+				ownerEmail: viewBook[0].owner_email,
+				ownerName: viewBook[0].owner_name,
+				owner: viewBook[0].book_owner,
+				dateUploaded: viewBook[0].date_uploaded
+			}
 		}
+
 	} catch (e) {
 		return e
 	}
