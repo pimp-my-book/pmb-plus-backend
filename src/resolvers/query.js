@@ -259,7 +259,6 @@ WHERE book_id = ?`, [args.ID])
 				degree: viewBook[0].book_degree,
 				course: viewBook[0].book_course,
 				univeristy: viewBook[0].book_univeristy,
-				ownerEmail: viewBook[0].owner_email,
 				ownerName: viewBook[0].owner_name,
 				owner: viewBook[0].book_owner,
 				dateUploaded: viewBook[0].date_uploaded
