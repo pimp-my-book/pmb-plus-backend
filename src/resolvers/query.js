@@ -220,6 +220,7 @@ WHERE book_id = ?`, [args.ID])
 
 		console.log(viewBook)
 
+		//const makeNumberVisiable 
 		return {
 			title: viewBook[0].book_title,
 			description: viewBook[0].book_description,

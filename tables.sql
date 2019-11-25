@@ -40,6 +40,7 @@ CREATE TABLE IF NOT EXISTS book
     book_owner varchar(250) not null,
     owner_name varchar(250) not null,
     owner_email varchar(250) not null,
+    owner_number varchar(250) not null,
     deactivated_status boolean,
     sold_Status boolean
      FOREIGN KEY(product_id) REFERENCES product(product_id) ON UPDATE CASCADE ON DELETE RESTRICT
