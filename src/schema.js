@@ -53,6 +53,7 @@ type Book  {
     owner: String!
     ownerEmail: String
     ownerName: String
+    ownerPhone: String
     univeristy: String
     course: String
     degree: String

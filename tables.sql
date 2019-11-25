@@ -58,4 +58,5 @@ users_id varchar(250) not null
 ALTER TABLE book
 add deactivated_status boolean,
 add sold_Status boolean
+add owner_number varchar(250) not null
 */
