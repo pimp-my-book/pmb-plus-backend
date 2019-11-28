@@ -40,14 +40,23 @@ CREATE TABLE IF NOT EXISTS book
     book_owner varchar(250) not null,
     owner_name varchar(250) not null,
     owner_email varchar(250) not null,
+    owner_number varchar(250) not null,
     deactivated_status boolean,
     sold_Status boolean
      FOREIGN KEY(product_id) REFERENCES product(product_id) ON UPDATE CASCADE ON DELETE RESTRICT
 );
+
+CREATE TABLE IF NOT EXISTS settings (
+settings_id MEDIUMINT UNSIGNED not null AUTO_INCREMENT primary key,
+show_email boolean,
+show_number boolean,
+users_id varchar(250) not null
+); 
 
 /*
 
 ALTER TABLE book
 add deactivated_status boolean,
 add sold_Status boolean
+add owner_number varchar(250) not null
 */

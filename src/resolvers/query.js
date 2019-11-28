@@ -210,7 +210,8 @@ book_course,
 book_univeristy,
 book_owner,
 owner_name,
-owner_email
+owner_email,
+owner_number
 
 FROM book
 WHERE book_id = ?`, [args.ID])
@@ -220,24 +221,50 @@ WHERE book_id = ?`, [args.ID])
 
 		console.log(viewBook)
 
-		return {
-			title: viewBook[0].book_title,
-			description: viewBook[0].book_description,
-			author: viewBook[0].book_author,
-			grade: viewBook[0].book_grade,
-			price: viewBook[0].book_price,
-			image: viewBook[0].book_image,
-			edition: viewBook[0].book_edition,
-			location: viewBook[0].book_location,
-			ISBN: viewBook[0].book_isbn,
-			degree: viewBook[0].book_degree,
-			course: viewBook[0].book_course,
-			univeristy: viewBook[0].book_univeristy,
-			ownerEmail: viewBook[0].owner_email,
-			ownerName: viewBook[0].owner_name,
-			owner: viewBook[0].book_owner,
-			dateUploaded: viewBook[0].date_uploaded
+		const makeNumberVisiable = await db.query(`SELECT show_number FROM settings WHERE users_id = ?`, [viewBook[0].book_owner])
+		await db.end
+		console.log(makeNumberVisiable[0].show_number)
+
+		if (makeNumberVisiable[0].show_number === 1 || makeNumberVisiable[0].show_email === 1) {
+			return {
+				title: viewBook[0].book_title,
+				description: viewBook[0].book_description,
+				author: viewBook[0].book_author,
+				grade: viewBook[0].book_grade,
+				price: viewBook[0].book_price,
+				image: viewBook[0].book_image,
+				edition: viewBook[0].book_edition,
+				location: viewBook[0].book_location,
+				ISBN: viewBook[0].book_isbn,
+				degree: viewBook[0].book_degree,
+				course: viewBook[0].book_course,
+				univeristy: viewBook[0].book_univeristy,
+				ownerEmail: viewBook[0].owner_email,
+				ownerName: viewBook[0].owner_name,
+				ownerPhone: viewBook[0].owner_number,
+				owner: viewBook[0].book_owner,
+				dateUploaded: viewBook[0].date_uploaded
+			}
+		} else {
+			return {
+				title: viewBook[0].book_title,
+				description: viewBook[0].book_description,
+				author: viewBook[0].book_author,
+				grade: viewBook[0].book_grade,
+				price: viewBook[0].book_price,
+				image: viewBook[0].book_image,
+				edition: viewBook[0].book_edition,
+				location: viewBook[0].book_location,
+				ISBN: viewBook[0].book_isbn,
+				degree: viewBook[0].book_degree,
+				course: viewBook[0].book_course,
+				univeristy: viewBook[0].book_univeristy,
+				ownerName: viewBook[0].owner_name,
+				owner: viewBook[0].book_owner,
+				dateUploaded: viewBook[0].date_uploaded
+			}
 		}
+
 	} catch (e) {
 		return e
 	}
@@ -250,7 +277,7 @@ export const getMyBooks = async (args, context) => {
 
 		let usersBooks = await db.query(`SELECT book_id,book_title,book_image FROM book WHERE book_owner = ?`, [args.owner])
 
-		console.log(usersBooks)
+
 
 		await db.end()
 
@@ -277,7 +304,7 @@ export const searchAllBooks = async (args, context) => {
 		let searchedBooks = await db.query("SELECT book_id,book_title,book_image FROM book WHERE  book_title REGEXP ? OR book_isbn LIKE ? OR book_author REGEXP ?", [args.searchTerm, args.searchTerm, args.searchTerm])
 
 		await await db.end()
-		console.log(searchedBooks)
+
 		return searchedBooks.map(item => ({
 			ID: item.book_id,
 			title: item.book_title,
@@ -296,7 +323,7 @@ export const getBooksAtAUniversity = async (args, context) => {
 		let booksFromUniversity = await db.query(`SELECT book_id,book_title, book_grade,book_price,book_image,book_univeristy FROM book WHERE book_univeristy = ?`, [args.university])
 
 		await db.end()
-		await await db.end()
+
 
 		return booksFromUniversity.map(item => ({
 			ID: item.book_id,
@@ -307,6 +334,23 @@ export const getBooksAtAUniversity = async (args, context) => {
 			image: item.book_image,
 			univeristy: item.book_univeristy
 		}))
+	} catch (e) {
+		return e
+	}
+}
+
+//getUsersSettings
+
+export const getUsersSettings = async (args, context) => {
+	try {
+		let usersSettings = await db.query(`SELECT settings_id,show_email,show_number FROM settings WHERE users_id = ?`, [args.userID])
+		await db.end()
+		return {
+			ID: usersSettings[0].settings_id,
+			showEmail: usersSettings[0].show_email,
+			showNumber: usersSettings[0].show_number
+
+		}
 	} catch (e) {
 		return e
 	}

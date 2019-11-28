@@ -53,11 +53,23 @@ type Book  {
     owner: String!
     ownerEmail: String
     ownerName: String
+    ownerPhone: String
     univeristy: String
     course: String
     degree: String
    
 }
+
+"""
+A settings type for the users' email/phone preferences 
+"""
+type Settings {
+    ID: Int!
+    showEmail: Boolean
+    showNumber: Boolean
+    userID: String
+}
+
 type S3Payload {
     signedRequest: String!,
     url: String!
@@ -68,7 +80,13 @@ type Mutation {
     editBook(input: editBookInput ): Boolean!
     deactivateBook(owner: String!, ID: Int!): Boolean!
     markAsSold(owner: String!, ID: Int!): Boolean!
+    showEmail(showEmail: Boolean,userID: String): Boolean!
+    showNumber(showNumber: Boolean,userID: String): Boolean!
+    hideEmail(showEmail: Boolean,userID: String): Boolean!
+    hideNumber(showNumber: Boolean,userID: String): Boolean!
 }
+
+
 type Query {
      hello: String!
      connection: String
@@ -112,6 +130,7 @@ A query that gets books by univeristy
      getMyBooks(owner: String!): [Book!]!
      searchAllBooks(searchTerm:String!): [Book!]!
      getBooksAtAUniversity(university: String!): [Book!]!
+     getUsersSettings(userID: String!): Settings!
 }
 `
 export { schema }
