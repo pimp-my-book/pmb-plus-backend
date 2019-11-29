@@ -89,9 +89,9 @@ export const addBook = async ({ input: args }, context) => {
                 addBookInput.univeristy,
                 '1',
                 context.event.requestContext.authorizer.claims.sub,
-                'Lando Norris',
-                'Lando@norris.co.za',
-                '0923434343'
+                context.event.requestContext.authorizer.claims["custom:FullName"],
+                context.event.requestContext.authorizer.claims.email,
+                context.event.requestContext.authorizer.claims["custom:phoneNumber"]
 
 
 
@@ -125,9 +125,7 @@ export const addBook = async ({ input: args }, context) => {
     }
 }
 /*
-             context.event.requestContext.authorizer.claims["custom:FullName"],
-                context.event.requestContext.authorizer.claims.email,
-                context.event.requestContext.authorizer.claims["custom:phoneNumber"]
+            
 
 */
 //editBook
