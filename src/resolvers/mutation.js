@@ -72,7 +72,7 @@ export const addBook = async ({ input: args }, context) => {
         }
         console.log(process.env.NODE_ENV)
         console.log(db)
-        let newBook = await db.query(`INSERT INTO book (book_title,book_description,book_author,book_grade,book_price,book_condition,book_image,book_edition,book_location,book_isbn,book_degree,book_course,book_univeristy,product_id,book_owner,owner_name,owner_email,owner_number) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`,
+        let newBook = await db.query(`INSERT INTO book (book_title,book_description,book_author,book_grade,book_price,book_condition,book_image,book_edition,book_location,book_isbn,book_degree,book_course,book_univeristy,product_id,book_owner,owner_name,owner_email,owner_number) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`,
             [
                 addBookInput.title,
                 addBookInput.description,
@@ -89,9 +89,12 @@ export const addBook = async ({ input: args }, context) => {
                 addBookInput.univeristy,
                 '1',
                 context.event.requestContext.authorizer.claims.sub,
-                context.event.requestContext.authorizer.claims["custom:FullName"],
-                context.event.requestContext.authorizer.claims.email,
-                context.event.requestContext.authorizer.claims["custom:phoneNumber"]
+                'Lando Norris',
+                'Lando@norris.co.za',
+                '0923434343'
+
+
+
 
             ]
         )
@@ -122,7 +125,9 @@ export const addBook = async ({ input: args }, context) => {
     }
 }
 /*
-
+             context.event.requestContext.authorizer.claims["custom:FullName"],
+                context.event.requestContext.authorizer.claims.email,
+                context.event.requestContext.authorizer.claims["custom:phoneNumber"]
 
 */
 //editBook
