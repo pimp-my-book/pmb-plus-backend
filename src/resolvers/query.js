@@ -2,7 +2,7 @@ import db from '../../libs/db'
 
 export const hello = (args, context) => {
 
-	return `${process.env.NODE_ENV}`
+	return `${process.env.NODE_ENV} && ${process.env.env_stage}`
 }
 
 //https://itnext.io/15-useful-javascript-examples-of-map-reduce-and-filter-74cbbb5e0a1f
@@ -47,13 +47,14 @@ group by book_degree
 
 	*/
 	try {
+		console.log(db.config())
+
 
 		let booksByDegree = await db.query(`SELECT book_id,book_title, book_grade,book_price,book_image,book_degree, book_location  FROM book
 		ORDER BY book_degree`)
 
 
 
-		console.log(db.config())
 
 
 

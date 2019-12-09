@@ -37,7 +37,7 @@ const isProd = process.env.ENV === 'prodcution'
 const isDev = process.env.env_stage === 'development'
 
 
-const db = isDev && isProd ? clientDev : clientProd
+const db = isDev ? clientDev : clientProd
 
 //isDev === 'development' ? clientDev : clientProd
 // isProd ? clientProd : isDev ? clientDev :
