@@ -63,6 +63,7 @@ functions:
           integration: lambda-proxy
           authorizer:
               arn:aws:cognito-idp:us-east-1:094935673706:userpool/us-east-1_Dm8Wvfq3Q
+              arn:aws:cognito-idp:us-east-1:094935673706:userpool/us-east-1_o6CvWzyjU
 
       - http:
           path: graphql

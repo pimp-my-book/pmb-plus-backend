@@ -62,4 +62,25 @@ add owner_number varchar(250) not null,
 add book_owner varchar(250) not null,
     add owner_name varchar(250) not null,
    add  owner_email varchar(250) not null,
+
+
+INSERT INTO book(book_title,
+book_description,
+book_author,
+book_grade,
+book_price,
+book_image,
+book_edition,
+book_location,
+book_isbn,
+book_degree,
+book_course,
+book_univeristy,
+book_owner,
+owner_name,
+owner_email,
+owner_number)
+
+VALUES('Voices of this land : An anthology of South African poetry in English','Help me a lot',' A. Wessels', 'A','344','https://images-na.ssl-images-amazon.com/images/I/51HK56FRNKL._SX337_BO1,204,203,200_.jpg',
+'3','Cape Town','322342342342324','BA: PPE','ATO101','UCT','99999-8888-5555-4444','Cage the elephant','cage@elephant.com','343434334')
 */
