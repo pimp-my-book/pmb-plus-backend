@@ -53,7 +53,7 @@ group by book_degree
 
 
 
-		//console.log(booksByDegree)
+		console.log(db.config())
 
 
 
