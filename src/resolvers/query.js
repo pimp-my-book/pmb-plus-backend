@@ -2,7 +2,7 @@ import db from '../../libs/db'
 
 export const hello = (args, context) => {
 
-	return console.log(process.env.NODE_ENV)
+	return `${process.env.NODE_ENV}`
 }
 
 //https://itnext.io/15-useful-javascript-examples-of-map-reduce-and-filter-74cbbb5e0a1f
