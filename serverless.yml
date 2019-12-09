@@ -21,7 +21,7 @@ custom:
 provider:
   name: aws
   runtime: nodejs8.10
-  stage: dev
+  stage: ${self:custom.stage}
   region: us-east-1
   environment:
   #local
