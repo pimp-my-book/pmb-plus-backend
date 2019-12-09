@@ -34,10 +34,10 @@ const clientProd = Client({
 
 
 const isProd = process.env.ENV === 'prodcution'
-const isDev = process.env.env_Stage
+const isDev = process.env.env_stage === 'development'
 
 
-const db = clientDev
+const db = isDev && isProd ? clientDev : clientProd
 
 //isDev === 'development' ? clientDev : clientProd
 // isProd ? clientProd : isDev ? clientDev :
