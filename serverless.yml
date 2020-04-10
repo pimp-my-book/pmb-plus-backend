@@ -24,31 +24,31 @@ provider:
   stage: dev
   region: us-east-1
   environment:
-  #local
+    #local
     db_local_user: ${file(./env.yml):local.db_local_user}
     db_local_database: ${file(env.yml):local.db_local_database}
     db_local_password: ${file(env.yml):local.db_local_password}
     db_port: 3306
     db_local_host: ${file(env.yml):local.db_local_host}
-  #dev
+    #dev
     db_user_dev: ${file(env.yml):dev.db_user_dev}
     db_name_dev: ${file(env.yml):dev.db_name_dev}
     db_password_dev: ${file(env.yml):dev.db_password_dev}
     db_url_dev: ${file(env.yml):dev.db_url_dev}
-  #prod
+    #prod
     db_user_prod: ${file(env.yml):prod.db_user_prod}
     db_name_prod: ${file(env.yml):prod.db_name_prod}
     db_password_prod: ${file(env.yml):prod.db_password_prod}
     db_url_prod: ${file(env.yml):prod.db_url_prod}
+
   vpc:
     securityGroupIds:
-      - sg-0817d67e10564fcac
+      - sg-06d91384d018ecc06
     subnetIds:
-      - subnet-02caece9d0c09d9b3
-      - subnet-0a5543550af69c4cb
-      - subnet-0437b2c12ac33444f
-      - subnet-043d6118efb6a6f9b
- 
+      - subnet-07510a4f906a2d08e
+      - subnet-003df4b8ca8c73b77
+      - subnet-0a6f3e2a57aa0fec1
+      - subnet-0fd08d630da24e4c8
 
 functions:
   graphql:
@@ -58,20 +58,18 @@ functions:
     events:
       - http:
           path: graphql
-          method: post 
-          cors: true 
+          method: post
+          cors: true
           integration: lambda-proxy
           authorizer:
-              arn:aws:cognito-idp:us-east-1:094935673706:userpool/us-east-1_Dm8Wvfq3Q
-              arn:aws:cognito-idp:us-east-1:094935673706:userpool/us-east-1_o6CvWzyjU
+            arn:aws:cognito-idp:us-east-1:094935673706:userpool/us-east-1_Dm8Wvfq3Q
+            arn:aws:cognito-idp:us-east-1:094935673706:userpool/us-east-1_o6CvWzyjU
 
       - http:
           path: graphql
-          method: get 
+          method: get
           cors: true
           integration: lambda-proxy
-          
-
 
 resources:
   #Cognito
